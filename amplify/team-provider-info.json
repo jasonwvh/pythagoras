@@ -10,6 +10,11 @@
             "StackName": "amplify-pythagorasdev-dev-192935",
             "StackId": "arn:aws:cloudformation:ap-southeast-1:029984587685:stack/amplify-pythagorasdev-dev-192935/f9ce8810-e07c-11ea-bd4d-0a58c7c408be",
             "AmplifyAppId": "d3icm754kyazhv"
+        },
+        "categories": {
+            "auth": {
+                "pythagorasdeva33a426e": {}
+            }
         }
     }
 }

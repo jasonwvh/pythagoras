@@ -14,7 +14,7 @@ export default function QuizReview() {
     useEffect(() => {
         async function getQuiz(quizID) {
             const response = (await DataStore.query(Quiz)).filter(
-                (c) => c.quizID === quizID
+                (c) => c.id === quizID
             );
             setQuiz(response);
         }
@@ -33,6 +33,7 @@ export default function QuizReview() {
     const renderChallenge = (challenge) => {
         const solution = challenge.solution;
         const title = challenge.title;
+        const subtitle = challenge.subtitle;
         const choices = challenge.choices;
         const explanation = challenge.explanation;
 
@@ -40,6 +41,7 @@ export default function QuizReview() {
             <div key={challenge.id}>
                 <div className="reviewTitle">
                     <h1 className="questionTitle">{title}</h1>
+                    <h2>{subtitle}</h2>
                 </div>
                 {choices.map((choice, index) => (
                     <div
