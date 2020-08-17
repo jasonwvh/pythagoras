@@ -1,26 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import Student from './components/Student'
+import QuizContainer from './components/QuizContainer';
+import QuizReview from './components/QuizReview'
+
+import { Route, BrowserRouter, Switch } from "react-router-dom";
+
+import Amplify from "aws-amplify";
+import awsExports from "./aws-exports";
+Amplify.configure(awsExports);
+
+export default class App extends React.Component {
+  render () {
+    return (
+      <BrowserRouter>
+        <Switch>
+          <Route path="/" exact component={Student} />
+          <Route path="/practice/:id/:question" component={QuizContainer} />
+          <Route path="/practice/:id" component={QuizContainer} />
+          <Route path="/review/:id" component={QuizReview} />
+          <Route component={Student} />
+        </Switch>
+      </BrowserRouter>
+    );
+  }
 }
-
-export default App;

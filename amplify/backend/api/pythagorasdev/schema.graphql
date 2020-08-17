@@ -1,0 +1,17 @@
+type Quiz @model {
+  id: ID!
+  title: String!
+  category: String
+  challenges: [Challenge] @connection(keyName: "byChallenge", fields: ["id"])
+}
+
+type Challenge @model
+  @key(name: "byChallenge", fields: ["quizID", "title", "subtitle", "choices", "solution", "explanation"]) {
+  id: ID!
+  quizID: ID!
+  title: String!
+  subtitle: String
+  choices: [String]
+  solution: Int
+  explanation: String
+}
