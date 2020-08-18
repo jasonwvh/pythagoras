@@ -1,5 +1,6 @@
 import React from "react";
 import { Col, Form, Button } from "react-bootstrap";
+import { Link } from "react-router-dom"
 import { DataStore } from "@aws-amplify/datastore";
 import { Quiz, Challenge } from "../models";
 
@@ -64,6 +65,12 @@ export default class QuizCreate extends React.Component {
         this.setState({challengeList: list})
     }
 
+    handleQuestionRemove(i) {
+        let list = this.state.challengeList;
+        list.splice(i, 1);
+        this.setState({challengeList: list})
+    }
+
     async handleSave() {
         const quiz = await DataStore.save(new Quiz({
                 title: this.state.title,
@@ -96,7 +103,7 @@ export default class QuizCreate extends React.Component {
             choiceTwo: "",
             choiceThree: "",
             choiceFour: "",
-            solution: 1,
+            solution: 0,
             explanation: "",
         })
         this.setState({challengeList: list})
@@ -217,10 +224,10 @@ export default class QuizCreate extends React.Component {
                                                 this.handleQuestionChange(e, i)
                                             }
                                         >
-                                            <option value={1}>One</option>
-                                            <option value={2}>Two</option>
-                                            <option value={3}>Three</option>
-                                            <option value={4}>Four</option>
+                                            <option value={0}>One</option>
+                                            <option value={1}>Two</option>
+                                            <option value={2}>Three</option>
+                                            <option value={3}>Four</option>
                                         </Form.Control>
                                     </Col>
                                 </Form.Row>
@@ -239,13 +246,16 @@ export default class QuizCreate extends React.Component {
                                         />
                                     </Col>
                                 </Form.Row>
+                                <Button onClick={() => this.handleQuestionRemove(i)}>Remove</Button>
                             </Form>
                         </div>
                     ))}
                 </div>
-                <Button onClick={this.onAddChallenge}>Add challenge</Button>
+                <Button onClick={this.onAddChallenge}>Add question</Button>
                 <div></div>
+                <Link to="/teacher">
                 <Button onClick={this.handleSave}>Save quiz</Button>
+                </Link>
             </div>
         );
     }
