@@ -1,7 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
-
-import { Button } from "react-bootstrap"
 
 import { DataStore } from "@aws-amplify/datastore";
 import { Quiz, Challenge } from "../models";
@@ -13,18 +10,19 @@ export default class QuizPractice extends React.Component {
             quizID: props.match.params.id,
             quiz: [],
             challenges: [],
+
             count: 0,
-            total: 0,
             score: 0,
             showButton: false,
             questionAnswered: false,
-            isAnswered: false,
             displayPopup: "flex",
-            classNames: ['', '', '', '']
+            classNames: ["", "", "", ""],
         };
         this.nextQuestion = this.nextQuestion.bind(this);
+        this.handleShowButton = this.handleShowButton.bind(this);
+        this.handleStartQuiz = this.handleStartQuiz.bind(this);
+        this.handleIncreaseScore = this.handleIncreaseScore.bind(this);
         this.checkAnswer = this.checkAnswer.bind(this);
-        
     }
 
     async componentDidMount() {
@@ -89,40 +87,40 @@ export default class QuizPractice extends React.Component {
     }
 
     checkAnswer(e) {
-        console.log("clicked on " + e)
-        
-        if(!this.state.isAnswered) {
+        console.log("clicked something");
+        let { questionAnswered } = this.state;
+
+        if (!questionAnswered) {
+            console.log("clicked on " + e);
+            let { solution } = this.state;
+
             let elem = e.currentTarget;
-            console.log("elem " + elem)
-            let { correct, increaseScore } = this.state;
             let answer = Number(elem.dataset.id);
+
             let updatedClassNames = this.state.classNames;
 
-            if(answer === correct){
-                updatedClassNames[answer-1] = 'right';
-                increaseScore();
+            console.log("answer: " + answer);
+            if (answer === solution) {
+                console.log("answer is correct");
+                updatedClassNames[answer - 1] = "right";
+                console.log("class name: " + updatedClassNames[answer - 1]);
+                this.handleIncreaseScore();
+            } else {
+                console.log("answer is wrong");
+                updatedClassNames[answer - 1] = "wrong";
             }
-            else {
-                updatedClassNames[answer-1] = 'wrong';
-            }
-            
+
             this.setState({
                 classNames: updatedClassNames,
-                
-            })
+            });
 
-            this.handleShowButton();       
-            var myTime = setTimeout(() => {
-                this.clearClasses();
-                //console.log("IN SET Timeout")
-            }, 5000);
+            this.handleShowButton();
         }
     }
-    clearClasses(){
+    clearClasses() {
         this.setState({
-            classNames: ['', '', '', '']
-        })
-        
+            classNames: ["", "", "", ""],
+        });
     }
 
     render() {
@@ -131,44 +129,48 @@ export default class QuizPractice extends React.Component {
             total,
             question,
             choices,
-            solution,
             showButton,
-            questionAnswered,
-            displayPopup,
-            score,
             classNames,
         } = this.state;
 
-        let { answers } = this.props;
-
-        let transition = {
-            transitionName: "example",
-            transitionEnterTimeout: 500,
-            transitionLeaveTimeout: 300
-        }
-        
-        console.log(choices);
-
         return (
-            <div>
-                <h1>QuizPractice for {this.state.quizID} </h1>
-                <div>
-                    <div>
-                        <p> {question} </p>
-                    </div>
-                    <div>
-                        {choices && choices.map((choice, index) => (
-                            <div key={index}>
-                                <Button className={"title "} onClick={(e) => this.checkAnswer(e)}>{choice}</Button>
-                            </div>
-                        ))}
+            <div className="studyComponent">
+                <div className="studyContainer">
+                    <div className="col-lg-12 col-md-10">
+                        <div id="question">
+                            <h4 className="bg-light">
+                                Question {count}/{total}
+                            </h4>
+                            <p> {question} </p>
+                        </div>
+                        <div id="answers">
+                            <ul>
+                                {choices &&
+                                    choices.map((choice, i) => (
+                                        <li
+                                            key={i}
+                                            className={classNames[i]}
+                                            data-id={i + 1}
+                                            onClick={this.checkAnswer}
+                                        >
+                                            {choice}
+                                        </li>
+                                    ))}
+                            </ul>
+                        </div>
                     </div>
                 </div>
-                <div>
-                    {showButton ? 
-                    <Button onClick={this.nextQuestion} >
-                    {count === total ? 'Finish quiz' : 'Next question'}
-                    </Button> : <span></span>}
+                <div id="submit">
+                    {showButton ? (
+                        <button
+                            className="fancy-btn"
+                            onClick={this.nextQuestion}
+                        >
+                            {count === total ? "Finish quiz" : "Next question"}
+                        </button>
+                    ) : (
+                        <span></span>
+                    )}
                 </div>
             </div>
         );
