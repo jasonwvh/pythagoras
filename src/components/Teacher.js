@@ -1,10 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { Button } from "react-bootstrap"
+
 import { DataStore } from "@aws-amplify/datastore";
 import { Quiz, Challenge } from "../models";
 let subscription;
 
-export default class Student extends React.Component {
+export default class Teacher extends React.Component {
     constructor(props) {
         super(props);
 
@@ -90,14 +92,20 @@ export default class Student extends React.Component {
                             <Link
                                 className={"title "}
                                 to={{
-                                    pathname: `practice/${quiz.id}`,
+                                    pathname: `/review/${quiz.id}`,
                                     state: { quizID: quiz.id },
                                 }}
                             >
                                 {quiz.title}
                             </Link>
+                            <Button onClick={() => this.onDeleteQuiz(quiz.id)}>
+                                Delete
+                            </Button>
                         </div>
                     ))}
+                </div>
+                <div>
+                    <Button onClick={this.onCreateQuiz}>Create Quiz</Button>
                 </div>
             </div>
         );
