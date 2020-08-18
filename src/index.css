@@ -1,14 +1,14 @@
-/* freeCodeCamp theme colors: */
-/* Admittedly, the styles are kind of all over the place.
- Refactoring and reorganizing this thing would be great. */
  body {
-  padding-bottom: 65px;
+  padding-bottom: 35px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   margin: 0;
   background: #fafafa;
   background-size: cover;
   color: #141414;
   text-align: center;
-  font-size: 30px; }
+  font-size: 20px; }
   body .errorsBox {
     color: #E60036; }
   body a {
@@ -50,6 +50,10 @@
       background: white;
       color: #42DB9D;
       border-bottom: 1px solid #42DB9D; }
+
+/*====================
+        QUIZZES
+======================*/
 
 .studyComponent {
   width: 550px;
@@ -413,9 +417,10 @@
 /*====================
         QUESTIONS
 ======================*/
+
 #question {
   margin-top: 100px;
-  background-color: #F57C00;
+  background-color: #04A470;
   color: white;
   padding: 10px;
   text-align: center;
@@ -454,7 +459,7 @@
 
 #answers li {
   background-color: #fff;
-  border: 2px solid #FF9800;
+  border: 2px solid #42DB9D;
   min-height: 70px;
   width: 100%;
   display: flex;
@@ -464,7 +469,7 @@
 }
 
 #answers li span {
-  background-color: #FF9800;
+  background-color: #42DB9D;
   color: #fff;
   font-size: 30px;
   flex: 75px;
@@ -548,9 +553,9 @@
 }
 
 .fancy-btn {
-  border: 2px solid #FF9800;
+  border: 2px solid #42DB9D;
   border-radius: 0;
-  background-color: #FF9800;
+  background-color: #42DB9D;
   color: #fff;
   display: inline-block;
   font-size: 18px;

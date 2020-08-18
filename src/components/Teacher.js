@@ -105,7 +105,15 @@ export default class Teacher extends React.Component {
                     ))}
                 </div>
                 <div>
-                    <Button onClick={this.onCreateQuiz}>Create Quiz</Button>
+                    {/*<Button onClick={this.onCreateQuiz}>Create Quiz</Button>*/}
+                    <Link
+                        className={"title "}
+                        to={{
+                            pathname: `/create`
+                        }}
+                    >
+                        Create Quiz
+                    </Link>
                 </div>
             </div>
         );

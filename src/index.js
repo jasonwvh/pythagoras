@@ -6,6 +6,7 @@ import Student from './components/Student'
 import QuizPractice from './components/QuizPractice';
 import Teacher from './components/Teacher'
 import QuizReview from './components/QuizReview'
+import QuizCreate from './components/QuizCreate'
 
 import { Route, BrowserRouter, Switch } from "react-router-dom";
 import * as serviceWorker from './serviceWorker';
@@ -20,6 +21,7 @@ ReactDOM.render(
             <Route path="/practice/:id" component={QuizPractice} />
           <Route path="/teacher" component={Teacher} /> 
             <Route path="/review/:id" component={QuizReview} />
+            <Route path="/create" component={QuizCreate} />
         </Switch>
       </BrowserRouter>
   </React.StrictMode>,
