@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import { DataStore } from "@aws-amplify/datastore";
 import { Quiz, Challenge } from "../models";
@@ -13,9 +14,13 @@ export default class QuizPractice extends React.Component {
 
             count: 0,
             score: 0,
-            showButton: false,
+            explanation: "",
+
             questionAnswered: false,
-            displayPopup: "flex",
+            answerCorrect: null,
+
+            complete: false,
+            showButton: false,
             classNames: ["", "", "", ""],
         };
         this.nextQuestion = this.nextQuestion.bind(this);
@@ -49,7 +54,6 @@ export default class QuizPractice extends React.Component {
 
     handleStartQuiz() {
         this.setState({
-            displayPopup: "none",
             count: 1,
         });
     }
@@ -65,17 +69,19 @@ export default class QuizPractice extends React.Component {
             question: this.state.challenges[count].subtitle,
             choices: this.state.challenges[count].choices,
             solution: this.state.challenges[count].solution,
-            total: this.state.challenges[count].choices.size,
+            explanation: this.state.challenges[count].explanation,
+            total: this.state.challenges.length,
             count: this.state.count + 1,
         });
     }
 
     nextQuestion() {
         let { count, total } = this.state;
+        this.clearClasses();
 
         if (count === total) {
             this.setState({
-                displayPopup: "flex",
+                complete: true,
             });
         } else {
             this.insertData(count);
@@ -87,31 +93,28 @@ export default class QuizPractice extends React.Component {
     }
 
     checkAnswer(e) {
-        console.log("clicked something");
         let { questionAnswered } = this.state;
 
         if (!questionAnswered) {
-            console.log("clicked on " + e);
-            let { solution } = this.state;
+            let { solution, answerCorrect } = this.state;
 
             let elem = e.currentTarget;
             let answer = Number(elem.dataset.id);
 
             let updatedClassNames = this.state.classNames;
 
-            console.log("answer: " + answer);
             if (answer === solution) {
-                console.log("answer is correct");
+                answerCorrect = true;
                 updatedClassNames[answer - 1] = "right";
-                console.log("class name: " + updatedClassNames[answer - 1]);
                 this.handleIncreaseScore();
             } else {
-                console.log("answer is wrong");
+                answerCorrect = false;
                 updatedClassNames[answer - 1] = "wrong";
             }
 
             this.setState({
                 classNames: updatedClassNames,
+                answerCorrect: answerCorrect,
             });
 
             this.handleShowButton();
@@ -127,49 +130,94 @@ export default class QuizPractice extends React.Component {
         let {
             count,
             total,
+            score,
             question,
             choices,
+            explanation,
             showButton,
             classNames,
+            answerCorrect,
+            questionAnswered,
+            complete,
         } = this.state;
 
         return (
             <div className="studyComponent">
                 <div className="studyContainer">
-                    <div className="col-lg-12 col-md-10">
-                        <div id="question">
-                            <h4 className="bg-light">
-                                Question {count}/{total}
-                            </h4>
-                            <p> {question} </p>
+                    {!complete && (
+                        <div>
+                            <div id="question">
+                                <h4 className="bg-light">
+                                    Question {count}/{total}
+                                </h4>
+                                <p> {question} </p>
+                            </div>
+                            <div id="answers">
+                                <ul>
+                                    {choices &&
+                                        choices.map((choice, i) => (
+                                            <li
+                                                key={i}
+                                                className={classNames[i]}
+                                                data-id={i + 1}
+                                                onClick={this.checkAnswer}
+                                            >
+                                                {choice}
+                                            </li>
+                                        ))}
+                                </ul>
+                            </div>
+                            {questionAnswered && answerCorrect != null && (
+                                <div className="messageDiv">
+                                    {answerCorrect ? (
+                                        <h1 className="correctAnswer">
+                                            Correct, great work!
+                                        </h1>
+                                    ) : (
+                                        <h1 className="wrongAnswer">
+                                            Sorry, that is not correct!
+                                        </h1>
+                                    )}
+                                    {explanation && !answerCorrect && (
+                                        <div className="explanation">
+                                            <h3>Explanation:</h3>
+                                            <p>{explanation}</p>
+                                        </div>
+                                    )}
+                                </div>
+                            )}
+                            <div id="submit">
+                                {showButton ? (
+                                    <button
+                                        className="fancy-btn"
+                                        onClick={this.nextQuestion}
+                                    >
+                                        {count === total
+                                            ? "Finish quiz"
+                                            : "Next question"}
+                                    </button>
+                                ) : (
+                                    <span></span>
+                                )}
+                            </div>
                         </div>
-                        <div id="answers">
-                            <ul>
-                                {choices &&
-                                    choices.map((choice, i) => (
-                                        <li
-                                            key={i}
-                                            className={classNames[i]}
-                                            data-id={i + 1}
-                                            onClick={this.checkAnswer}
-                                        >
-                                            {choice}
-                                        </li>
-                                    ))}
-                            </ul>
+                    )}
+                    {complete && (
+                        <div>
+                            <h1 className="scoreMessage">
+                                You scored {score} correct out of{" "}
+                                {total} questions!{" "}
+                                { (score/total) > 0.5
+                                    ? "Nice work!"
+                                    : "Better luck next time!"}
+                            </h1>
+                            <Link
+                                className="finishBtn"
+                                to="/"
+                            >
+                                <button>Return to Quiz Page</button>
+                            </Link>
                         </div>
-                    </div>
-                </div>
-                <div id="submit">
-                    {showButton ? (
-                        <button
-                            className="fancy-btn"
-                            onClick={this.nextQuestion}
-                        >
-                            {count === total ? "Finish quiz" : "Next question"}
-                        </button>
-                    ) : (
-                        <span></span>
                     )}
                 </div>
             </div>
