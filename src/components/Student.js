@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { Auth } from '@aws-amplify/auth'
 import { DataStore } from "@aws-amplify/datastore";
 import { Quiz, Challenge, Classroom } from "../models";
 let subscriptionQuiz;
@@ -10,12 +11,14 @@ export default class Student extends React.Component {
         super(props);
 
         this.state = {
+            email: '',
             quizzes: [],
             classrooms: [],
         };
     }
 
     componentDidMount() {
+        this.getUserInfo();
         this.onQueryQuiz();
         this.onQueryClassroom();
 
@@ -33,6 +36,13 @@ export default class Student extends React.Component {
     componentWillUnmount() {
         subscriptionQuiz.unsubscribe();
     }
+
+    async getUserInfo() {
+        const user = await Auth.currentAuthenticatedUser();
+
+        this.setState ({ email: user.attributes.email })
+        console.log('attributes:', user.attributes);
+      }
 
     async onQueryQuiz() {
         const quizzes = await DataStore.query(Quiz);
@@ -66,7 +76,8 @@ export default class Student extends React.Component {
         return (
             <div>
                 <div className="header">
-                    <span>Pythagoras</span>
+                    <span>Hello</span>
+                    <p> {this.state.email} </p>
                 </div>
                 <div className="studyComponent">
                     {this.state.quizzes.map((quiz, i) => (
