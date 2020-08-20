@@ -1,6 +1,6 @@
 {
     "identityPoolName": "pythagorasdeva33a426e_identitypool_a33a426e",
-    "allowUnauthenticatedIdentities": false,
+    "allowUnauthenticatedIdentities": true,
     "resourceNameTruncated": "pythaga33a426e",
     "userPoolName": "pythagorasdeva33a426e_userpool_a33a426e",
     "autoVerifiedAttributes": [

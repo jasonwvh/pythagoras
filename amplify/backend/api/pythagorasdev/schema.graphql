@@ -1,11 +1,13 @@
-type Quiz @model {
+type Quiz 
+  @model {
   id: ID!
   title: String!
   category: String
   challenges: [Challenge] @connection(keyName: "byChallenge", fields: ["id"])
 }
 
-type Challenge @model
+type Challenge 
+  @model
   @key(name: "byChallenge", fields: ["quizID", "title", "subtitle", "choices", "solution", "explanation"]) {
   id: ID!
   quizID: ID!
@@ -14,4 +16,18 @@ type Challenge @model
   choices: [String]
   solution: Int
   explanation: String
+}
+
+type Classroom 
+  @model {
+  id: ID!
+  title: String!
+  students: [String]
+}
+
+type Student 
+  @model {
+  id: ID!
+  username: String!
+  classes: [String]
 }

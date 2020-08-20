@@ -1,0 +1,21 @@
+{
+    "appName": "pythagorasdev",
+    "roleName": "pinpointLambdaRoleb9b7c8b0",
+    "cloudformationPolicyName": "cloudformationPolicyb9b7c8b0",
+    "cloudWatchPolicyName": "cloudWatchPolicyb9b7c8b0",
+    "pinpointPolicyName": "pinpointPolicyb9b7c8b0",
+    "authPolicyName": "pinpoint_amplify_b9b7c8b0",
+    "unauthPolicyName": "pinpoint_amplify_b9b7c8b0",
+    "authRoleName": {
+        "Ref": "AuthRoleName"
+    },
+    "unauthRoleName": {
+        "Ref": "UnauthRoleName"
+    },
+    "authRoleArn": {
+        "Fn::GetAtt": [
+            "AuthRole",
+            "Arn"
+        ]
+    }
+}

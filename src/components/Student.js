@@ -1,8 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { DataStore } from "@aws-amplify/datastore";
-import { Quiz, Challenge } from "../models";
-let subscription;
+import { Quiz, Challenge, Classroom } from "../models";
+let subscriptionQuiz;
+let subscriptionClassroom;
 
 export default class Student extends React.Component {
     constructor(props) {
@@ -10,62 +11,27 @@ export default class Student extends React.Component {
 
         this.state = {
             quizzes: [],
+            classrooms: [],
         };
     }
 
     componentDidMount() {
         this.onQueryQuiz();
+        this.onQueryClassroom();
 
-        subscription = DataStore.observe(Quiz).subscribe((msg) => {
+        subscriptionQuiz = DataStore.observe(Quiz).subscribe((msg) => {
             console.log("SUBSCRIPTION_UPDATE", msg);
             this.onQueryQuiz();
+        });
+
+        subscriptionClassroom = DataStore.observe(Classroom).subscribe((msg) => {
+            console.log("SUBSCRIPTION_UPDATE", msg);
+            this.onQueryClassroom();
         });
     }
 
     componentWillUnmount() {
-        subscription.unsubscribe();
-    }
-
-    async onCreateQuiz() {
-        const quiz = await DataStore.save(
-            new Quiz({
-                title: "test quiz ".concat(Math.floor(Math.random()*10)),
-                category: "test category ".concat(Math.floor(Math.random()*10)),
-            })
-        );
-
-        await DataStore.save(
-            new Challenge({
-                quizID: quiz.id,
-                title: "challenge ".concat(Math.floor(Math.random()*10)),
-                subtitle: "test subtitle ".concat(Math.floor(Math.random()*10)),
-                choices: [
-                    Math.floor(Math.random()*10).toString(), 
-                    Math.floor(Math.random()*10).toString(), 
-                    Math.floor(Math.random()*10).toString(), 
-                    Math.floor(Math.random()*10).toString()
-                ],
-                solution: Math.floor(Math.random()*4),
-                explanation: "test explanation ".concat(Math.floor(Math.random()*10)),
-            })
-        );
-
-
-        await DataStore.save(
-            new Challenge({
-                quizID: quiz.id,
-                title: "challenge ".concat(Math.floor(Math.random()*10)),
-                subtitle: "test subtitle ".concat(Math.floor(Math.random()*10)),
-                choices: [
-                    Math.floor(Math.random()*10).toString(), 
-                    Math.floor(Math.random()*10).toString(), 
-                    Math.floor(Math.random()*10).toString(), 
-                    Math.floor(Math.random()*10).toString()
-                ],
-                solution: Math.floor(Math.random()*4),
-                explanation: "test explanation ".concat(Math.floor(Math.random()*10)),
-            })
-        )
+        subscriptionQuiz.unsubscribe();
     }
 
     async onQueryQuiz() {
@@ -74,8 +40,26 @@ export default class Student extends React.Component {
         this.setState({ quizzes });
     }
 
-    async onDeleteQuiz(id) {
-        await DataStore.delete(Quiz, (c) => c.id("eq", id));
+    async onQueryClassroom() {
+        const classrooms = await DataStore.query(Classroom);
+
+        this.setState({ classrooms });
+    }
+
+    async onFollowClassroom(id) {
+        const ori = await DataStore.query(Classroom, (c) => c.id("eq", id))
+
+        console.log(ori[0].title)
+
+        let stud = Object.assign([], ori[0].students);
+        stud.push('me')
+        console.log(stud)
+
+        await DataStore.save(
+          Classroom.copyOf(ori[0], updated => {
+            updated.students = stud;
+          })
+        );
     }
 
     render() {
@@ -96,6 +80,14 @@ export default class Student extends React.Component {
                             >
                                 {quiz.title}
                             </Link>
+                        </div>
+                    ))}
+                    {this.state.classrooms.map((classroom, i) => (
+                        <div key={i} className="quizContainer">
+                            <p> {classroom.title} </p>
+                            <button onClick={() => this.onFollowClassroom(classroom.id)}> Follow Classroom </button>
+                            <p> Students </p>
+                            <p> {classroom.students} </p>
                         </div>
                     ))}
                 </div>

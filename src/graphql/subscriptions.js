@@ -151,3 +151,87 @@ export const onDeleteChallenge = /* GraphQL */ `
     }
   }
 `;
+export const onCreateClassroom = /* GraphQL */ `
+  subscription OnCreateClassroom {
+    onCreateClassroom {
+      id
+      title
+      students
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onUpdateClassroom = /* GraphQL */ `
+  subscription OnUpdateClassroom {
+    onUpdateClassroom {
+      id
+      title
+      students
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onDeleteClassroom = /* GraphQL */ `
+  subscription OnDeleteClassroom {
+    onDeleteClassroom {
+      id
+      title
+      students
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onCreateStudent = /* GraphQL */ `
+  subscription OnCreateStudent {
+    onCreateStudent {
+      id
+      username
+      classes
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onUpdateStudent = /* GraphQL */ `
+  subscription OnUpdateStudent {
+    onUpdateStudent {
+      id
+      username
+      classes
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onDeleteStudent = /* GraphQL */ `
+  subscription OnDeleteStudent {
+    onDeleteStudent {
+      id
+      username
+      classes
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+    }
+  }
+`;

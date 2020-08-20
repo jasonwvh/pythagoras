@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap"
 
 import { DataStore } from "@aws-amplify/datastore";
-import { Quiz, Challenge } from "../models";
+import { Quiz, Challenge, Classroom } from "../models";
 let subscription;
 
 export default class Teacher extends React.Component {
@@ -28,46 +28,11 @@ export default class Teacher extends React.Component {
         subscription.unsubscribe();
     }
 
-    async onCreateQuiz() {
-        const quiz = await DataStore.save(
-            new Quiz({
-                title: "test quiz ".concat(Math.floor(Math.random()*10)),
-                category: "test category ".concat(Math.floor(Math.random()*10)),
-            })
-        );
-
-        await DataStore.save(
-            new Challenge({
-                quizID: quiz.id,
-                title: "challenge ".concat(Math.floor(Math.random()*10)),
-                subtitle: "test subtitle ".concat(Math.floor(Math.random()*10)),
-                choices: [
-                    Math.floor(Math.random()*10).toString(), 
-                    Math.floor(Math.random()*10).toString(), 
-                    Math.floor(Math.random()*10).toString(), 
-                    Math.floor(Math.random()*10).toString()
-                ],
-                solution: Math.floor(Math.random()*4),
-                explanation: "test explanation ".concat(Math.floor(Math.random()*10)),
-            })
-        );
-
-
-        await DataStore.save(
-            new Challenge({
-                quizID: quiz.id,
-                title: "challenge ".concat(Math.floor(Math.random()*10)),
-                subtitle: "test subtitle ".concat(Math.floor(Math.random()*10)),
-                choices: [
-                    Math.floor(Math.random()*10).toString(), 
-                    Math.floor(Math.random()*10).toString(), 
-                    Math.floor(Math.random()*10).toString(), 
-                    Math.floor(Math.random()*10).toString()
-                ],
-                solution: Math.floor(Math.random()*4),
-                explanation: "test explanation ".concat(Math.floor(Math.random()*10)),
-            })
-        )
+    async onCreateClassroom() {
+        await DataStore.save(new Classroom({
+            title: "New class",
+            students: ["aa"],
+        }))
     }
 
     async onQueryQuiz() {
@@ -105,7 +70,7 @@ export default class Teacher extends React.Component {
                     ))}
                 </div>
                 <div>
-                    {/*<Button onClick={this.onCreateQuiz}>Create Quiz</Button>*/}
+                    <Button onClick={this.onCreateClassroom}>Create Classroom</Button>
                     <Link
                         className={"title "}
                         to={{
