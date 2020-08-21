@@ -23,6 +23,7 @@ export default class StudentPage extends React.Component {
 
         subscription = DataStore.observe(Classroom).subscribe(msg => {
             console.log(msg.model, msg.opType, msg.element);
+            this.onQueryClassroom();
           });
     }
 
@@ -51,11 +52,12 @@ export default class StudentPage extends React.Component {
 
     async onJoinClassroom(id) {
         const oriClassroom = await DataStore.query(Classroom, (c) => c.id("eq", id))
-        console.log(oriClassroom)
+        console.log("ori " + oriClassroom.students)
+        console.log("ori0 " + oriClassroom[0].students)
 
         let newStudents = Object.assign([], oriClassroom[0].students);
         newStudents.push(this.state.username)
-        console.log(newStudents)
+        console.log("new list " + newStudents)
 
         await DataStore.save(
           Classroom.copyOf(oriClassroom[0], updated => {
@@ -66,6 +68,7 @@ export default class StudentPage extends React.Component {
         const enroll = await DataStore.save(
             new ClassEnrollment({
                 classroomID: oriClassroom[0].id,
+                classroomTitle: oriClassroom[0].title,
                 studentUsername: this.state.username,
                 progress: 50,
             })

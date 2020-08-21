@@ -228,6 +228,7 @@ export const createClassEnrollment = /* GraphQL */ `
     createClassEnrollment(input: $input, condition: $condition) {
       id
       classroomID
+      classroomTitle
       studentUsername
       progress
       _version
@@ -246,6 +247,7 @@ export const updateClassEnrollment = /* GraphQL */ `
     updateClassEnrollment(input: $input, condition: $condition) {
       id
       classroomID
+      classroomTitle
       studentUsername
       progress
       _version
@@ -264,6 +266,7 @@ export const deleteClassEnrollment = /* GraphQL */ `
     deleteClassEnrollment(input: $input, condition: $condition) {
       id
       classroomID
+      classroomTitle
       studentUsername
       progress
       _version

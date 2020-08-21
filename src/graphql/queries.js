@@ -247,6 +247,7 @@ export const syncClassEnrollments = /* GraphQL */ `
       items {
         id
         classroomID
+        classroomTitle
         studentUsername
         progress
         _version
@@ -265,6 +266,7 @@ export const getClassEnrollment = /* GraphQL */ `
     getClassEnrollment(id: $id) {
       id
       classroomID
+      classroomTitle
       studentUsername
       progress
       _version
@@ -289,6 +291,7 @@ export const listClassEnrollments = /* GraphQL */ `
       items {
         id
         classroomID
+        classroomTitle
         studentUsername
         progress
         _version

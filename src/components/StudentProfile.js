@@ -9,7 +9,7 @@ export default class StudentProfile extends React.Component {
 
         this.state = {
             username: '',
-            classroomIDs: [],
+            enrollments: [],
             classrooms: [],
         };
     }
@@ -24,6 +24,7 @@ export default class StudentProfile extends React.Component {
 
         const enrollments = await DataStore.query(ClassEnrollment, c => c.studentUsername("eq", user.username))
         console.log(enrollments)
+        this.setState({ enrollments })
 
         let enrollmentsID = enrollments.map(c => c.classroomID)
         console.log(enrollmentsID)
@@ -39,10 +40,10 @@ export default class StudentProfile extends React.Component {
     render() {
         return(
             <div>
-                {this.state.classrooms && this.state.classrooms.map((classroom, i) => (
+                {this.state.enrollments && this.state.enrollments.map((classroom, i) => (
                         <div key={i}>
                             <p>
-                                Title {classroom.title}
+                                Title {classroom.classroomTitle}
                             </p>
                             <p>
                                 Progress {classroom.progress}

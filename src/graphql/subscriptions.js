@@ -198,6 +198,7 @@ export const onCreateClassEnrollment = /* GraphQL */ `
     onCreateClassEnrollment {
       id
       classroomID
+      classroomTitle
       studentUsername
       progress
       _version
@@ -213,6 +214,7 @@ export const onUpdateClassEnrollment = /* GraphQL */ `
     onUpdateClassEnrollment {
       id
       classroomID
+      classroomTitle
       studentUsername
       progress
       _version
@@ -228,6 +230,7 @@ export const onDeleteClassEnrollment = /* GraphQL */ `
     onDeleteClassEnrollment {
       id
       classroomID
+      classroomTitle
       studentUsername
       progress
       _version

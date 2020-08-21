@@ -1,8 +1,8 @@
 {
-    "identityPoolName": "pythagorasdeva33a426e_identitypool_a33a426e",
-    "allowUnauthenticatedIdentities": true,
-    "resourceNameTruncated": "pythaga33a426e",
-    "userPoolName": "pythagorasdeva33a426e_userpool_a33a426e",
+    "identityPoolName": "pythagorasdevd66d3a19_identitypool_d66d3a19",
+    "allowUnauthenticatedIdentities": false,
+    "resourceNameTruncated": "pythagd66d3a19",
+    "userPoolName": "pythagorasdevd66d3a19_userpool_d66d3a19",
     "autoVerifiedAttributes": [
         "email"
     ],
@@ -28,10 +28,10 @@
     "userpoolClientReadAttributes": [
         "email"
     ],
-    "userpoolClientLambdaRole": "pythaga33a426e_userpoolclient_lambda_role",
+    "userpoolClientLambdaRole": "pythagd66d3a19_userpoolclient_lambda_role",
     "userpoolClientSetAttributes": false,
-    "sharedId": "a33a426e",
-    "resourceName": "pythagorasdeva33a426e",
+    "sharedId": "d66d3a19",
+    "resourceName": "pythagorasdevd66d3a19",
     "authSelections": "identityPoolAndUserPool",
     "authRoleArn": {
         "Fn::GetAtt": [

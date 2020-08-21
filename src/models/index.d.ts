@@ -36,6 +36,7 @@ export declare class Classroom {
 export declare class ClassEnrollment {
   readonly id: string;
   readonly classroomID?: string;
+  readonly classroomTitle?: string;
   readonly studentUsername?: string;
   readonly progress?: number;
   constructor(init: ModelInit<ClassEnrollment>);

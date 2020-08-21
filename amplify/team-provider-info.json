@@ -1,20 +1,19 @@
 {
     "dev": {
         "awscloudformation": {
-            "AuthRoleName": "amplify-pythagorasdev-dev-192935-authRole",
-            "UnauthRoleArn": "arn:aws:iam::029984587685:role/amplify-pythagorasdev-dev-192935-unauthRole",
-            "AuthRoleArn": "arn:aws:iam::029984587685:role/amplify-pythagorasdev-dev-192935-authRole",
+            "AuthRoleName": "amplify-pythagorasdev-dev-33611-authRole",
+            "UnauthRoleArn": "arn:aws:iam::029984587685:role/amplify-pythagorasdev-dev-33611-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::029984587685:role/amplify-pythagorasdev-dev-33611-authRole",
             "Region": "ap-southeast-1",
-            "DeploymentBucketName": "amplify-pythagorasdev-dev-192935-deployment",
-            "UnauthRoleName": "amplify-pythagorasdev-dev-192935-unauthRole",
-            "StackName": "amplify-pythagorasdev-dev-192935",
-            "StackId": "arn:aws:cloudformation:ap-southeast-1:029984587685:stack/amplify-pythagorasdev-dev-192935/f9ce8810-e07c-11ea-bd4d-0a58c7c408be",
-            "AmplifyAppId": "d3icm754kyazhv"
+            "DeploymentBucketName": "amplify-pythagorasdev-dev-33611-deployment",
+            "UnauthRoleName": "amplify-pythagorasdev-dev-33611-unauthRole",
+            "StackName": "amplify-pythagorasdev-dev-33611",
+            "StackId": "arn:aws:cloudformation:ap-southeast-1:029984587685:stack/amplify-pythagorasdev-dev-33611/927be330-e3e5-11ea-9ab4-06a52c6ee8f8",
+            "AmplifyAppId": "dbizvqnfjdhcj"
         },
         "categories": {
             "auth": {
-                "pythagorasdev3d9e7c69": {},
-                "pythagorasdeva33a426e": {}
+                "pythagorasdevd66d3a19": {}
             }
         }
     }

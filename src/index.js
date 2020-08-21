@@ -12,6 +12,10 @@ import QuizCreate from './components/QuizCreate'
 import { Route, BrowserRouter, Switch } from "react-router-dom";
 import * as serviceWorker from './serviceWorker';
 
+import Amplify from "aws-amplify";
+import awsmobile from "./aws-exports";
+Amplify.configure(awsmobile);
+
 ReactDOM.render(
   <React.StrictMode>
       <BrowserRouter>

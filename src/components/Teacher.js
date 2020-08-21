@@ -18,9 +18,11 @@ export default class Teacher extends React.Component {
 
     componentDidMount() {
         this.onQueryQuiz();
+        this.onQueryClassroom() 
 
         subscription = DataStore.observe(Classroom).subscribe((msg) => {
             console.log(msg.model, msg.opType, msg.element);
+            this.onQueryClassroom()
         });
     }
 
@@ -32,6 +34,7 @@ export default class Teacher extends React.Component {
         const classes = await DataStore.save(
             new Classroom({
                 title: "New class ".concat(Math.floor(Math.random() * 10)),
+                students: []
             })
         );
 
