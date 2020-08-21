@@ -1,5 +1,6 @@
 type Quiz 
-  @model {
+  @model 
+  @auth(rules: [{ allow: public, provider: iam }]) {
   id: ID!
   title: String!
   category: String
@@ -8,6 +9,7 @@ type Quiz
 
 type Challenge 
   @model
+  @auth(rules: [{ allow: public, provider: iam }])
   @key(name: "byChallenge", fields: ["quizID", "title", "subtitle", "choices", "solution", "explanation"]) {
   id: ID!
   quizID: ID!
@@ -19,15 +21,18 @@ type Challenge
 }
 
 type Classroom 
-  @model {
+  @model 
+  @auth(rules: [{ allow: public, provider: iam }]) {
   id: ID!
   title: String!
   students: [String]
 }
 
-type Student 
-  @model {
+type ClassEnrollment
+  @model
+  @auth(rules: [{ allow: public, provider: iam }]) {
   id: ID!
-  username: String!
-  classes: [String]
+  classroomID: String
+  studentUsername: String
+  progress: Int
 }

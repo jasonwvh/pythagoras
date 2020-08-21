@@ -16,7 +16,7 @@ class App extends React.Component {
             <h1>Welcome</h1>
             <p>I am a...</p>
                 <nav>
-                    <Link to="/student">Student</Link>
+                    <Link to="/studentPage">Student</Link>
                     <div></div>
                     <Link to="/teacher">Teacher</Link>
                 </nav>
@@ -26,3 +26,4 @@ class App extends React.Component {
 }
 
 export default withAuthenticator(App)
+//export default App

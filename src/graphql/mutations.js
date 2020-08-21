@@ -220,15 +220,16 @@ export const deleteClassroom = /* GraphQL */ `
     }
   }
 `;
-export const createStudent = /* GraphQL */ `
-  mutation CreateStudent(
-    $input: CreateStudentInput!
-    $condition: ModelStudentConditionInput
+export const createClassEnrollment = /* GraphQL */ `
+  mutation CreateClassEnrollment(
+    $input: CreateClassEnrollmentInput!
+    $condition: ModelClassEnrollmentConditionInput
   ) {
-    createStudent(input: $input, condition: $condition) {
+    createClassEnrollment(input: $input, condition: $condition) {
       id
-      username
-      classes
+      classroomID
+      studentUsername
+      progress
       _version
       _deleted
       _lastChangedAt
@@ -237,15 +238,16 @@ export const createStudent = /* GraphQL */ `
     }
   }
 `;
-export const updateStudent = /* GraphQL */ `
-  mutation UpdateStudent(
-    $input: UpdateStudentInput!
-    $condition: ModelStudentConditionInput
+export const updateClassEnrollment = /* GraphQL */ `
+  mutation UpdateClassEnrollment(
+    $input: UpdateClassEnrollmentInput!
+    $condition: ModelClassEnrollmentConditionInput
   ) {
-    updateStudent(input: $input, condition: $condition) {
+    updateClassEnrollment(input: $input, condition: $condition) {
       id
-      username
-      classes
+      classroomID
+      studentUsername
+      progress
       _version
       _deleted
       _lastChangedAt
@@ -254,15 +256,16 @@ export const updateStudent = /* GraphQL */ `
     }
   }
 `;
-export const deleteStudent = /* GraphQL */ `
-  mutation DeleteStudent(
-    $input: DeleteStudentInput!
-    $condition: ModelStudentConditionInput
+export const deleteClassEnrollment = /* GraphQL */ `
+  mutation DeleteClassEnrollment(
+    $input: DeleteClassEnrollmentInput!
+    $condition: ModelClassEnrollmentConditionInput
   ) {
-    deleteStudent(input: $input, condition: $condition) {
+    deleteClassEnrollment(input: $input, condition: $condition) {
       id
-      username
-      classes
+      classroomID
+      studentUsername
+      progress
       _version
       _deleted
       _lastChangedAt

@@ -2,16 +2,15 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Auth } from '@aws-amplify/auth'
 import { DataStore } from "@aws-amplify/datastore";
-import { Quiz, Challenge, Classroom } from "../models";
-let subscriptionQuiz;
-let subscriptionClassroom;
+import { Quiz, Classroom, ClassEnrollment } from "../models";
+let subscription;
 
-export default class Student extends React.Component {
+export default class StudentPage extends React.Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            email: '',
+            username: '',
             quizzes: [],
             classrooms: [],
         };
@@ -22,63 +21,66 @@ export default class Student extends React.Component {
         this.onQueryQuiz();
         this.onQueryClassroom();
 
-        subscriptionQuiz = DataStore.observe(Quiz).subscribe((msg) => {
-            console.log("SUBSCRIPTION_UPDATE", msg);
-            this.onQueryQuiz();
-        });
-
-        subscriptionClassroom = DataStore.observe(Classroom).subscribe((msg) => {
-            console.log("SUBSCRIPTION_UPDATE", msg);
-            this.onQueryClassroom();
-        });
+        subscription = DataStore.observe(Classroom).subscribe(msg => {
+            console.log(msg.model, msg.opType, msg.element);
+          });
     }
 
     componentWillUnmount() {
-        subscriptionQuiz.unsubscribe();
+        subscription.unsubscribe();
     }
 
     async getUserInfo() {
         const user = await Auth.currentAuthenticatedUser();
+        console.log('username is ' + user.username)
 
-        this.setState ({ email: user.attributes.email })
-        console.log('attributes:', user.attributes);
+        this.setState ({ username: user.username })
       }
 
     async onQueryQuiz() {
         const quizzes = await DataStore.query(Quiz);
-
+        console.log('quizzes is ' + quizzes)
         this.setState({ quizzes });
     }
 
     async onQueryClassroom() {
         const classrooms = await DataStore.query(Classroom);
-
+        console.log('classrooms is ' + classrooms)
         this.setState({ classrooms });
     }
 
-    async onFollowClassroom(id) {
-        const ori = await DataStore.query(Classroom, (c) => c.id("eq", id))
+    async onJoinClassroom(id) {
+        const oriClassroom = await DataStore.query(Classroom, (c) => c.id("eq", id))
+        console.log(oriClassroom)
 
-        console.log(ori[0].title)
-
-        let stud = Object.assign([], ori[0].students);
-        stud.push('me')
-        console.log(stud)
+        let newStudents = Object.assign([], oriClassroom[0].students);
+        newStudents.push(this.state.username)
+        console.log(newStudents)
 
         await DataStore.save(
-          Classroom.copyOf(ori[0], updated => {
-            updated.students = stud;
+          Classroom.copyOf(oriClassroom[0], updated => {
+            updated.students = newStudents;
           })
         );
+
+        const enroll = await DataStore.save(
+            new ClassEnrollment({
+                classroomID: oriClassroom[0].id,
+                studentUsername: this.state.username,
+                progress: 50,
+            })
+        )
+        console.log(enroll)
     }
 
     render() {
         return (
             <div>
                 <div className="header">
-                    <span>Hello</span>
-                    <p> {this.state.email} </p>
+                    <span><Link to="/studentProfile">Profile</Link></span>
+                    <p> {this.state.username} </p>
                 </div>
+                
                 <div className="studyComponent">
                     {this.state.quizzes.map((quiz, i) => (
                         <div key={i} className="quizContainer">
@@ -96,8 +98,7 @@ export default class Student extends React.Component {
                     {this.state.classrooms.map((classroom, i) => (
                         <div key={i} className="quizContainer">
                             <p> {classroom.title} </p>
-                            <button onClick={() => this.onFollowClassroom(classroom.id)}> Follow Classroom </button>
-                            <p> Students </p>
+                            <button onClick={() => this.onJoinClassroom(classroom.id)}> Join Classroom </button>
                             <p> {classroom.students} </p>
                         </div>
                     ))}

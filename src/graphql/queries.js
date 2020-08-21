@@ -231,14 +231,14 @@ export const listClassrooms = /* GraphQL */ `
     }
   }
 `;
-export const syncStudents = /* GraphQL */ `
-  query SyncStudents(
-    $filter: ModelStudentFilterInput
+export const syncClassEnrollments = /* GraphQL */ `
+  query SyncClassEnrollments(
+    $filter: ModelClassEnrollmentFilterInput
     $limit: Int
     $nextToken: String
     $lastSync: AWSTimestamp
   ) {
-    syncStudents(
+    syncClassEnrollments(
       filter: $filter
       limit: $limit
       nextToken: $nextToken
@@ -246,8 +246,9 @@ export const syncStudents = /* GraphQL */ `
     ) {
       items {
         id
-        username
-        classes
+        classroomID
+        studentUsername
+        progress
         _version
         _deleted
         _lastChangedAt
@@ -259,12 +260,13 @@ export const syncStudents = /* GraphQL */ `
     }
   }
 `;
-export const getStudent = /* GraphQL */ `
-  query GetStudent($id: ID!) {
-    getStudent(id: $id) {
+export const getClassEnrollment = /* GraphQL */ `
+  query GetClassEnrollment($id: ID!) {
+    getClassEnrollment(id: $id) {
       id
-      username
-      classes
+      classroomID
+      studentUsername
+      progress
       _version
       _deleted
       _lastChangedAt
@@ -273,17 +275,22 @@ export const getStudent = /* GraphQL */ `
     }
   }
 `;
-export const listStudents = /* GraphQL */ `
-  query ListStudents(
-    $filter: ModelStudentFilterInput
+export const listClassEnrollments = /* GraphQL */ `
+  query ListClassEnrollments(
+    $filter: ModelClassEnrollmentFilterInput
     $limit: Int
     $nextToken: String
   ) {
-    listStudents(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    listClassEnrollments(
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
       items {
         id
-        username
-        classes
+        classroomID
+        studentUsername
+        progress
         _version
         _deleted
         _lastChangedAt

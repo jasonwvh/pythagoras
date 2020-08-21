@@ -2,7 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import Student from './components/Student'
+import StudentPage from './components/StudentPage'
+import StudentProfile from './components/StudentProfile'
 import QuizPractice from './components/QuizPractice';
 import Teacher from './components/Teacher'
 import QuizReview from './components/QuizReview'
@@ -16,12 +17,13 @@ ReactDOM.render(
       <BrowserRouter>
         <Switch>
           <Route path="/" exact component={App} />
-          <Route path="/student" component={Student} />
-            <Route path="/practice/:id/:question" component={QuizPractice} />
-            <Route path="/practice/:id" component={QuizPractice} />
+          <Route path="/studentPage" component={StudentPage} />
+          <Route path="/studentProfile" component={StudentProfile} />
+          <Route path="/practice/:id/:question" component={QuizPractice} />
+          <Route path="/practice/:id" component={QuizPractice} />
           <Route path="/teacher" component={Teacher} /> 
-            <Route path="/review/:id" component={QuizReview} />
-            <Route path="/create" component={QuizCreate} />
+          <Route path="/review/:id" component={QuizReview} />
+          <Route path="/create" component={QuizCreate} />
         </Switch>
       </BrowserRouter>
   </React.StrictMode>,

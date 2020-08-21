@@ -33,10 +33,11 @@ export declare class Classroom {
   static copyOf(source: Classroom, mutator: (draft: MutableModel<Classroom>) => MutableModel<Classroom> | void): Classroom;
 }
 
-export declare class Student {
+export declare class ClassEnrollment {
   readonly id: string;
-  readonly username: string;
-  readonly classes?: string[];
-  constructor(init: ModelInit<Student>);
-  static copyOf(source: Student, mutator: (draft: MutableModel<Student>) => MutableModel<Student> | void): Student;
+  readonly classroomID?: string;
+  readonly studentUsername?: string;
+  readonly progress?: number;
+  constructor(init: ModelInit<ClassEnrollment>);
+  static copyOf(source: ClassEnrollment, mutator: (draft: MutableModel<ClassEnrollment>) => MutableModel<ClassEnrollment> | void): ClassEnrollment;
 }

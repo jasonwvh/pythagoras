@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Button } from "react-bootstrap"
+import { Button } from "react-bootstrap";
 
 import { DataStore } from "@aws-amplify/datastore";
-import { Quiz, Challenge, Classroom } from "../models";
+import { Quiz, Classroom } from "../models";
 let subscription;
 
 export default class Teacher extends React.Component {
@@ -12,15 +12,15 @@ export default class Teacher extends React.Component {
 
         this.state = {
             quizzes: [],
+            classrooms: [],
         };
     }
 
     componentDidMount() {
         this.onQueryQuiz();
 
-        subscription = DataStore.observe(Quiz).subscribe((msg) => {
-            console.log("SUBSCRIPTION_UPDATE", msg);
-            this.onQueryQuiz();
+        subscription = DataStore.observe(Classroom).subscribe((msg) => {
+            console.log(msg.model, msg.opType, msg.element);
         });
     }
 
@@ -29,16 +29,25 @@ export default class Teacher extends React.Component {
     }
 
     async onCreateClassroom() {
-        await DataStore.save(new Classroom({
-            title: "New class",
-            students: ["aa"],
-        }))
+        const classes = await DataStore.save(
+            new Classroom({
+                title: "New class ".concat(Math.floor(Math.random() * 10)),
+            })
+        );
+
+        console.log(classes);
     }
 
     async onQueryQuiz() {
         const quizzes = await DataStore.query(Quiz);
 
         this.setState({ quizzes });
+    }
+
+    async onQueryClassroom() {
+        const classrooms = await DataStore.query(Classroom);
+
+        this.setState({ classrooms });
     }
 
     async onDeleteQuiz(id) {
@@ -68,13 +77,21 @@ export default class Teacher extends React.Component {
                             </Button>
                         </div>
                     ))}
+                    {this.state.classrooms.map((classroom, i) => (
+                        <div key={i} className="quizContainer">
+                            <p> {classroom.title} </p>
+                        </div>
+                    ))}
                 </div>
+
                 <div>
-                    <Button onClick={this.onCreateClassroom}>Create Classroom</Button>
+                    <Button onClick={this.onCreateClassroom}>
+                        Create Classroom
+                    </Button>
                     <Link
                         className={"title "}
                         to={{
-                            pathname: `/create`
+                            pathname: `/create`,
                         }}
                     >
                         Create Quiz

@@ -342,14 +342,14 @@
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "syncStudents",
+          "name" : "syncClassEnrollments",
           "description" : null,
           "args" : [ {
             "name" : "filter",
             "description" : null,
             "type" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelStudentFilterInput",
+              "name" : "ModelClassEnrollmentFilterInput",
               "ofType" : null
             },
             "defaultValue" : null
@@ -383,13 +383,13 @@
           } ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "ModelStudentConnection",
+            "name" : "ModelClassEnrollmentConnection",
             "ofType" : null
           },
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "getStudent",
+          "name" : "getClassEnrollment",
           "description" : null,
           "args" : [ {
             "name" : "id",
@@ -407,20 +407,20 @@
           } ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "Student",
+            "name" : "ClassEnrollment",
             "ofType" : null
           },
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "listStudents",
+          "name" : "listClassEnrollments",
           "description" : null,
           "args" : [ {
             "name" : "filter",
             "description" : null,
             "type" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelStudentFilterInput",
+              "name" : "ModelClassEnrollmentFilterInput",
               "ofType" : null
             },
             "defaultValue" : null
@@ -445,7 +445,7 @@
           } ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "ModelStudentConnection",
+            "name" : "ModelClassEnrollmentConnection",
             "ofType" : null
           },
           "isDeprecated" : false,
@@ -2011,7 +2011,7 @@
         "possibleTypes" : null
       }, {
         "kind" : "OBJECT",
-        "name" : "ModelStudentConnection",
+        "name" : "ModelClassEnrollmentConnection",
         "description" : null,
         "fields" : [ {
           "name" : "items",
@@ -2022,7 +2022,7 @@
             "name" : null,
             "ofType" : {
               "kind" : "OBJECT",
-              "name" : "Student",
+              "name" : "ClassEnrollment",
               "ofType" : null
             }
           },
@@ -2057,7 +2057,7 @@
         "possibleTypes" : null
       }, {
         "kind" : "OBJECT",
-        "name" : "Student",
+        "name" : "ClassEnrollment",
         "description" : null,
         "fields" : [ {
           "name" : "id",
@@ -2075,32 +2075,35 @@
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "username",
+          "name" : "classroomID",
           "description" : null,
           "args" : [ ],
           "type" : {
-            "kind" : "NON_NULL",
-            "name" : null,
-            "ofType" : {
-              "kind" : "SCALAR",
-              "name" : "String",
-              "ofType" : null
-            }
+            "kind" : "SCALAR",
+            "name" : "String",
+            "ofType" : null
           },
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "classes",
+          "name" : "studentUsername",
           "description" : null,
           "args" : [ ],
           "type" : {
-            "kind" : "LIST",
-            "name" : null,
-            "ofType" : {
-              "kind" : "SCALAR",
-              "name" : "String",
-              "ofType" : null
-            }
+            "kind" : "SCALAR",
+            "name" : "String",
+            "ofType" : null
+          },
+          "isDeprecated" : false,
+          "deprecationReason" : null
+        }, {
+          "name" : "progress",
+          "description" : null,
+          "args" : [ ],
+          "type" : {
+            "kind" : "SCALAR",
+            "name" : "Int",
+            "ofType" : null
           },
           "isDeprecated" : false,
           "deprecationReason" : null
@@ -2182,7 +2185,7 @@
         "possibleTypes" : null
       }, {
         "kind" : "INPUT_OBJECT",
-        "name" : "ModelStudentFilterInput",
+        "name" : "ModelClassEnrollmentFilterInput",
         "description" : null,
         "fields" : null,
         "inputFields" : [ {
@@ -2195,7 +2198,7 @@
           },
           "defaultValue" : null
         }, {
-          "name" : "username",
+          "name" : "classroomID",
           "description" : null,
           "type" : {
             "kind" : "INPUT_OBJECT",
@@ -2204,11 +2207,20 @@
           },
           "defaultValue" : null
         }, {
-          "name" : "classes",
+          "name" : "studentUsername",
           "description" : null,
           "type" : {
             "kind" : "INPUT_OBJECT",
             "name" : "ModelStringInput",
+            "ofType" : null
+          },
+          "defaultValue" : null
+        }, {
+          "name" : "progress",
+          "description" : null,
+          "type" : {
+            "kind" : "INPUT_OBJECT",
+            "name" : "ModelIntInput",
             "ofType" : null
           },
           "defaultValue" : null
@@ -2220,7 +2232,7 @@
             "name" : null,
             "ofType" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelStudentFilterInput",
+              "name" : "ModelClassEnrollmentFilterInput",
               "ofType" : null
             }
           },
@@ -2233,7 +2245,7 @@
             "name" : null,
             "ofType" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelStudentFilterInput",
+              "name" : "ModelClassEnrollmentFilterInput",
               "ofType" : null
             }
           },
@@ -2243,7 +2255,7 @@
           "description" : null,
           "type" : {
             "kind" : "INPUT_OBJECT",
-            "name" : "ModelStudentFilterInput",
+            "name" : "ModelClassEnrollmentFilterInput",
             "ofType" : null
           },
           "defaultValue" : null
@@ -2553,7 +2565,7 @@
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "createStudent",
+          "name" : "createClassEnrollment",
           "description" : null,
           "args" : [ {
             "name" : "input",
@@ -2563,7 +2575,7 @@
               "name" : null,
               "ofType" : {
                 "kind" : "INPUT_OBJECT",
-                "name" : "CreateStudentInput",
+                "name" : "CreateClassEnrollmentInput",
                 "ofType" : null
               }
             },
@@ -2573,20 +2585,20 @@
             "description" : null,
             "type" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelStudentConditionInput",
+              "name" : "ModelClassEnrollmentConditionInput",
               "ofType" : null
             },
             "defaultValue" : null
           } ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "Student",
+            "name" : "ClassEnrollment",
             "ofType" : null
           },
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "updateStudent",
+          "name" : "updateClassEnrollment",
           "description" : null,
           "args" : [ {
             "name" : "input",
@@ -2596,7 +2608,7 @@
               "name" : null,
               "ofType" : {
                 "kind" : "INPUT_OBJECT",
-                "name" : "UpdateStudentInput",
+                "name" : "UpdateClassEnrollmentInput",
                 "ofType" : null
               }
             },
@@ -2606,20 +2618,20 @@
             "description" : null,
             "type" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelStudentConditionInput",
+              "name" : "ModelClassEnrollmentConditionInput",
               "ofType" : null
             },
             "defaultValue" : null
           } ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "Student",
+            "name" : "ClassEnrollment",
             "ofType" : null
           },
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "deleteStudent",
+          "name" : "deleteClassEnrollment",
           "description" : null,
           "args" : [ {
             "name" : "input",
@@ -2629,7 +2641,7 @@
               "name" : null,
               "ofType" : {
                 "kind" : "INPUT_OBJECT",
-                "name" : "DeleteStudentInput",
+                "name" : "DeleteClassEnrollmentInput",
                 "ofType" : null
               }
             },
@@ -2639,14 +2651,14 @@
             "description" : null,
             "type" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelStudentConditionInput",
+              "name" : "ModelClassEnrollmentConditionInput",
               "ofType" : null
             },
             "defaultValue" : null
           } ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "Student",
+            "name" : "ClassEnrollment",
             "ofType" : null
           },
           "isDeprecated" : false,
@@ -3347,7 +3359,7 @@
         "possibleTypes" : null
       }, {
         "kind" : "INPUT_OBJECT",
-        "name" : "CreateStudentInput",
+        "name" : "CreateClassEnrollmentInput",
         "description" : null,
         "fields" : null,
         "inputFields" : [ {
@@ -3360,29 +3372,30 @@
           },
           "defaultValue" : null
         }, {
-          "name" : "username",
+          "name" : "classroomID",
           "description" : null,
           "type" : {
-            "kind" : "NON_NULL",
-            "name" : null,
-            "ofType" : {
-              "kind" : "SCALAR",
-              "name" : "String",
-              "ofType" : null
-            }
+            "kind" : "SCALAR",
+            "name" : "String",
+            "ofType" : null
           },
           "defaultValue" : null
         }, {
-          "name" : "classes",
+          "name" : "studentUsername",
           "description" : null,
           "type" : {
-            "kind" : "LIST",
-            "name" : null,
-            "ofType" : {
-              "kind" : "SCALAR",
-              "name" : "String",
-              "ofType" : null
-            }
+            "kind" : "SCALAR",
+            "name" : "String",
+            "ofType" : null
+          },
+          "defaultValue" : null
+        }, {
+          "name" : "progress",
+          "description" : null,
+          "type" : {
+            "kind" : "SCALAR",
+            "name" : "Int",
+            "ofType" : null
           },
           "defaultValue" : null
         }, {
@@ -3400,11 +3413,11 @@
         "possibleTypes" : null
       }, {
         "kind" : "INPUT_OBJECT",
-        "name" : "ModelStudentConditionInput",
+        "name" : "ModelClassEnrollmentConditionInput",
         "description" : null,
         "fields" : null,
         "inputFields" : [ {
-          "name" : "username",
+          "name" : "classroomID",
           "description" : null,
           "type" : {
             "kind" : "INPUT_OBJECT",
@@ -3413,11 +3426,20 @@
           },
           "defaultValue" : null
         }, {
-          "name" : "classes",
+          "name" : "studentUsername",
           "description" : null,
           "type" : {
             "kind" : "INPUT_OBJECT",
             "name" : "ModelStringInput",
+            "ofType" : null
+          },
+          "defaultValue" : null
+        }, {
+          "name" : "progress",
+          "description" : null,
+          "type" : {
+            "kind" : "INPUT_OBJECT",
+            "name" : "ModelIntInput",
             "ofType" : null
           },
           "defaultValue" : null
@@ -3429,7 +3451,7 @@
             "name" : null,
             "ofType" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelStudentConditionInput",
+              "name" : "ModelClassEnrollmentConditionInput",
               "ofType" : null
             }
           },
@@ -3442,7 +3464,7 @@
             "name" : null,
             "ofType" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelStudentConditionInput",
+              "name" : "ModelClassEnrollmentConditionInput",
               "ofType" : null
             }
           },
@@ -3452,7 +3474,7 @@
           "description" : null,
           "type" : {
             "kind" : "INPUT_OBJECT",
-            "name" : "ModelStudentConditionInput",
+            "name" : "ModelClassEnrollmentConditionInput",
             "ofType" : null
           },
           "defaultValue" : null
@@ -3462,7 +3484,7 @@
         "possibleTypes" : null
       }, {
         "kind" : "INPUT_OBJECT",
-        "name" : "UpdateStudentInput",
+        "name" : "UpdateClassEnrollmentInput",
         "description" : null,
         "fields" : null,
         "inputFields" : [ {
@@ -3479,7 +3501,7 @@
           },
           "defaultValue" : null
         }, {
-          "name" : "username",
+          "name" : "classroomID",
           "description" : null,
           "type" : {
             "kind" : "SCALAR",
@@ -3488,16 +3510,21 @@
           },
           "defaultValue" : null
         }, {
-          "name" : "classes",
+          "name" : "studentUsername",
           "description" : null,
           "type" : {
-            "kind" : "LIST",
-            "name" : null,
-            "ofType" : {
-              "kind" : "SCALAR",
-              "name" : "String",
-              "ofType" : null
-            }
+            "kind" : "SCALAR",
+            "name" : "String",
+            "ofType" : null
+          },
+          "defaultValue" : null
+        }, {
+          "name" : "progress",
+          "description" : null,
+          "type" : {
+            "kind" : "SCALAR",
+            "name" : "Int",
+            "ofType" : null
           },
           "defaultValue" : null
         }, {
@@ -3515,7 +3542,7 @@
         "possibleTypes" : null
       }, {
         "kind" : "INPUT_OBJECT",
-        "name" : "DeleteStudentInput",
+        "name" : "DeleteClassEnrollmentInput",
         "description" : null,
         "fields" : null,
         "inputFields" : [ {
@@ -3644,34 +3671,34 @@
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "onCreateStudent",
+          "name" : "onCreateClassEnrollment",
           "description" : null,
           "args" : [ ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "Student",
+            "name" : "ClassEnrollment",
             "ofType" : null
           },
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "onUpdateStudent",
+          "name" : "onUpdateClassEnrollment",
           "description" : null,
           "args" : [ ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "Student",
+            "name" : "ClassEnrollment",
             "ofType" : null
           },
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "onDeleteStudent",
+          "name" : "onDeleteClassEnrollment",
           "description" : null,
           "args" : [ ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "Student",
+            "name" : "ClassEnrollment",
             "ofType" : null
           },
           "isDeprecated" : false,
@@ -4642,23 +4669,6 @@
         "onFragment" : false,
         "onField" : false
       }, {
-        "name" : "deprecated",
-        "description" : null,
-        "locations" : [ "FIELD_DEFINITION", "ENUM_VALUE" ],
-        "args" : [ {
-          "name" : "reason",
-          "description" : null,
-          "type" : {
-            "kind" : "SCALAR",
-            "name" : "String",
-            "ofType" : null
-          },
-          "defaultValue" : "\"No longer supported\""
-        } ],
-        "onOperation" : false,
-        "onFragment" : false,
-        "onField" : false
-      }, {
         "name" : "aws_cognito_user_pools",
         "description" : "Tells the service this field/object has access authorized by a Cognito User Pools token.",
         "locations" : [ "OBJECT", "FIELD_DEFINITION" ],
@@ -4696,6 +4706,23 @@
             }
           },
           "defaultValue" : null
+        } ],
+        "onOperation" : false,
+        "onFragment" : false,
+        "onField" : false
+      }, {
+        "name" : "deprecated",
+        "description" : null,
+        "locations" : [ "FIELD_DEFINITION", "ENUM_VALUE" ],
+        "args" : [ {
+          "name" : "reason",
+          "description" : null,
+          "type" : {
+            "kind" : "SCALAR",
+            "name" : "String",
+            "ofType" : null
+          },
+          "defaultValue" : "\"No longer supported\""
         } ],
         "onOperation" : false,
         "onFragment" : false,

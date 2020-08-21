@@ -193,12 +193,13 @@ export const onDeleteClassroom = /* GraphQL */ `
     }
   }
 `;
-export const onCreateStudent = /* GraphQL */ `
-  subscription OnCreateStudent {
-    onCreateStudent {
+export const onCreateClassEnrollment = /* GraphQL */ `
+  subscription OnCreateClassEnrollment {
+    onCreateClassEnrollment {
       id
-      username
-      classes
+      classroomID
+      studentUsername
+      progress
       _version
       _deleted
       _lastChangedAt
@@ -207,12 +208,13 @@ export const onCreateStudent = /* GraphQL */ `
     }
   }
 `;
-export const onUpdateStudent = /* GraphQL */ `
-  subscription OnUpdateStudent {
-    onUpdateStudent {
+export const onUpdateClassEnrollment = /* GraphQL */ `
+  subscription OnUpdateClassEnrollment {
+    onUpdateClassEnrollment {
       id
-      username
-      classes
+      classroomID
+      studentUsername
+      progress
       _version
       _deleted
       _lastChangedAt
@@ -221,12 +223,13 @@ export const onUpdateStudent = /* GraphQL */ `
     }
   }
 `;
-export const onDeleteStudent = /* GraphQL */ `
-  subscription OnDeleteStudent {
-    onDeleteStudent {
+export const onDeleteClassEnrollment = /* GraphQL */ `
+  subscription OnDeleteClassEnrollment {
+    onDeleteClassEnrollment {
       id
-      username
-      classes
+      classroomID
+      studentUsername
+      progress
       _version
       _deleted
       _lastChangedAt
