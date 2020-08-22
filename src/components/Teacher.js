@@ -4,6 +4,11 @@ import { Button } from "react-bootstrap";
 
 import { DataStore } from "@aws-amplify/datastore";
 import { Quiz, Classroom } from "../models";
+
+import Amplify from "aws-amplify";
+import awsmobile from "../aws-exports";
+Amplify.configure(awsmobile);
+
 let subscription;
 
 export default class Teacher extends React.Component {
@@ -18,12 +23,13 @@ export default class Teacher extends React.Component {
 
     componentDidMount() {
         this.onQueryQuiz();
-        this.onQueryClassroom() 
+        this.onQueryClassroom();
 
-        subscription = DataStore.observe(Classroom).subscribe((msg) => {
+        subscription = DataStore.observe(Classroom).subscribe(msg => {
             console.log(msg.model, msg.opType, msg.element);
-            this.onQueryClassroom()
-        });
+            this.onQueryClassroom();
+          });
+          
     }
 
     componentWillUnmount() {
@@ -34,7 +40,7 @@ export default class Teacher extends React.Component {
         const classes = await DataStore.save(
             new Classroom({
                 title: "New class ".concat(Math.floor(Math.random() * 10)),
-                students: []
+                students: [""],
             })
         );
 

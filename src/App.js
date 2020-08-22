@@ -5,7 +5,9 @@ import { Link } from "react-router-dom";
 
 import { withAuthenticator, AmplifySignOut  } from '@aws-amplify/ui-react';
 
-
+import Amplify from "aws-amplify";
+import awsmobile from "./aws-exports";
+Amplify.configure(awsmobile);
 
 class App extends React.Component {
   render () {

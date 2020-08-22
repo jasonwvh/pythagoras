@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { Auth } from '@aws-amplify/auth'
 import { DataStore } from "@aws-amplify/datastore";
 import { Quiz, Classroom, ClassEnrollment } from "../models";
-let subscription;
 
 export default class StudentPage extends React.Component {
     constructor(props) {
@@ -20,15 +19,10 @@ export default class StudentPage extends React.Component {
         this.getUserInfo();
         this.onQueryQuiz();
         this.onQueryClassroom();
-
-        subscription = DataStore.observe(Classroom).subscribe(msg => {
-            console.log(msg.model, msg.opType, msg.element);
-            this.onQueryClassroom();
-          });
     }
 
     componentWillUnmount() {
-        subscription.unsubscribe();
+
     }
 
     async getUserInfo() {
