@@ -18,7 +18,7 @@ export default class StudentProfile extends React.Component {
     componentDidMount() {
         this.getUserCourses();
 
-        console.log(this.state.enrollments)
+        
     }
 
     async getUserCourses() {
@@ -34,7 +34,8 @@ export default class StudentProfile extends React.Component {
             this.setState({ courses: results })
         });
 
-        this.setState({enrollments})
+        this.setState({ enrollments })
+        console.log(this.state.enrollments)
       }
 
     render() {
@@ -50,6 +51,7 @@ export default class StudentProfile extends React.Component {
                             </p>
                         </div>
                     ))}
+                    {!this.state.enrollments}
             </div>
         )
     }

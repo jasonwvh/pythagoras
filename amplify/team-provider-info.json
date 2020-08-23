@@ -16,5 +16,24 @@
                 "pythagorasdevd66d3a19": {}
             }
         }
+    },
+    "py": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-pythagorasdev-py-171705-authRole",
+            "UnauthRoleArn": "arn:aws:iam::396117321644:role/amplify-pythagorasdev-py-171705-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::396117321644:role/amplify-pythagorasdev-py-171705-authRole",
+            "Region": "ap-southeast-1",
+            "DeploymentBucketName": "amplify-pythagorasdev-py-171705-deployment",
+            "UnauthRoleName": "amplify-pythagorasdev-py-171705-unauthRole",
+            "StackName": "amplify-pythagorasdev-py-171705",
+            "StackId": "arn:aws:cloudformation:ap-southeast-1:396117321644:stack/amplify-pythagorasdev-py-171705/6a2da840-e521-11ea-ab0a-02f95ca67868",
+            "AmplifyAppId": "dv6os7mp9rtlb"
+        },
+        "categories": {
+            "auth": {
+                "pythagorasdevd66d3a19": {},
+                "pythagorasdeve61daabf": {}
+            }
+        }
     }
 }

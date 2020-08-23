@@ -15,7 +15,7 @@ export default class QuestionEdit extends React.Component {
             choiceTwo: "",
             choiceThree: "",
             choiceFour: "",
-            solution: 0,
+            solution: 1,
             explanation: "",
         };
     }
@@ -30,7 +30,6 @@ export default class QuestionEdit extends React.Component {
         );
 
         let q, c1, c2, c3, c4, sol, exp;
-        sol = 0;
 
         if (question[0].question) {
             q = question[0].question
@@ -168,10 +167,10 @@ export default class QuestionEdit extends React.Component {
                         value={solution}
                         onChange={(e) => this.handleChange(e)}
                     >
-                        <option value={0}>1</option>
-                        <option value={1}>2</option>
-                        <option value={2}>3</option>
-                        <option value={3}>4</option>
+                        <option value={1}>1</option>
+                        <option value={2}>2</option>
+                        <option value={3}>3</option>
+                        <option value={4}>4</option>
                     </select>
 
                     <label>Explanation</label>

@@ -157,7 +157,7 @@ export default class AssignmentPractice extends React.Component {
                                             <li
                                                 key={i}
                                                 className={classNames[i]}
-                                                data-id={i + 1}
+                                                data-id={i+1}
                                                 onClick={this.checkAnswer}
                                             >
                                                 {choice}
