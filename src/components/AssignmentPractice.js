@@ -2,15 +2,15 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 import { DataStore } from "@aws-amplify/datastore";
-import { Quiz, Challenge } from "../models";
+import { Assignment, Question } from "../models";
 
-export default class QuizPractice extends React.Component {
+export default class AssignmentPractice extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            quizID: props.match.params.id,
-            quiz: [],
-            challenges: [],
+            assignmentID: props.match.params.id,
+            assignment: [],
+            questions: [],
 
             count: 0,
             score: 0,
@@ -25,21 +25,19 @@ export default class QuizPractice extends React.Component {
         };
         this.nextQuestion = this.nextQuestion.bind(this);
         this.handleShowButton = this.handleShowButton.bind(this);
-        this.handleStartQuiz = this.handleStartQuiz.bind(this);
+        this.handleStartAssignment = this.handleStartAssignment.bind(this);
         this.handleIncreaseScore = this.handleIncreaseScore.bind(this);
         this.checkAnswer = this.checkAnswer.bind(this);
     }
 
     async componentDidMount() {
-        const quiz = (await DataStore.query(Quiz)).filter(
-            (c) => c.id === this.state.quizID
-        );
-        const challenges = (await DataStore.query(Challenge)).filter(
-            (c) => c.quizID === this.state.quizID
-        );
+        const assignment = await DataStore.query(Assignment, (c) => c.id("eq", this.state.assignmentID));
+        const questions = await DataStore.query(Question, (c) => c.assignmentID("eq", this.state.assignmentID));
+        console.log(assignment)
+        console.log(questions)
 
-        this.setState({ quiz: quiz });
-        this.setState({ challenges: challenges });
+        this.setState({ assignment: assignment });
+        this.setState({ questions: questions });
 
         let { count } = this.state;
         this.insertData(count);
@@ -52,7 +50,7 @@ export default class QuizPractice extends React.Component {
         });
     }
 
-    handleStartQuiz() {
+    handleStartAssignment() {
         this.setState({
             count: 1,
         });
@@ -66,11 +64,11 @@ export default class QuizPractice extends React.Component {
 
     insertData(count) {
         this.setState({
-            question: this.state.challenges[count].subtitle,
-            choices: this.state.challenges[count].choices,
-            solution: this.state.challenges[count].solution,
-            explanation: this.state.challenges[count].explanation,
-            total: this.state.challenges.length,
+            question: this.state.questions[count].question,
+            choices: this.state.questions[count].choices,
+            solution: this.state.questions[count].solution,
+            explanation: this.state.questions[count].explanation,
+            total: this.state.questions.length,
             count: this.state.count + 1,
         });
     }
@@ -193,7 +191,7 @@ export default class QuizPractice extends React.Component {
                                         onClick={this.nextQuestion}
                                     >
                                         {count === total
-                                            ? "Finish quiz"
+                                            ? "Finish assignment"
                                             : "Next question"}
                                     </button>
                                 ) : (
@@ -215,7 +213,7 @@ export default class QuizPractice extends React.Component {
                                 className="finishBtn"
                                 to="/"
                             >
-                                <button>Return to Quiz Page</button>
+                                <button>Return to Assignment Page</button>
                             </Link>
                         </div>
                     )}

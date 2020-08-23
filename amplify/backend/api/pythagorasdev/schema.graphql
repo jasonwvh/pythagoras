@@ -1,35 +1,33 @@
-type Quiz 
+type Question 
   @model {
   id: ID!
-  title: String!
-  category: String
-  challenges: [Challenge] @connection(keyName: "byChallenge", fields: ["id"])
-}
-
-type Challenge 
-  @model
-  @key(name: "byChallenge", fields: ["quizID", "title", "subtitle", "choices", "solution", "explanation"]) {
-  id: ID!
-  quizID: ID!
-  title: String!
-  subtitle: String
+  assignmentID: String!
+  question: String
   choices: [String]
   solution: Int
   explanation: String
 }
 
-type Classroom 
+type Assignment 
+  @model {
+  id: ID!
+  courseID: String!
+  title: String!
+  category: String
+}
+
+type Course 
   @model {
   id: ID!
   title: String!
   students: [String]
 }
 
-type ClassEnrollment
+type Enrollment
   @model {
   id: ID!
-  classroomID: String
-  classroomTitle: String
+  courseID: String
+  courseTitle: String
   studentUsername: String
   progress: Int
 }

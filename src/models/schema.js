@@ -1,7 +1,7 @@
 export const schema = {
     "models": {
-        "Quiz": {
-            "name": "Quiz",
+        "Question": {
+            "name": "Question",
             "fields": {
                 "id": {
                     "name": "id",
@@ -10,69 +10,15 @@ export const schema = {
                     "isRequired": true,
                     "attributes": []
                 },
-                "title": {
-                    "name": "title",
+                "assignmentID": {
+                    "name": "assignmentID",
                     "isArray": false,
                     "type": "String",
                     "isRequired": true,
                     "attributes": []
                 },
-                "category": {
-                    "name": "category",
-                    "isArray": false,
-                    "type": "String",
-                    "isRequired": false,
-                    "attributes": []
-                },
-                "challenges": {
-                    "name": "challenges",
-                    "isArray": true,
-                    "type": {
-                        "model": "Challenge"
-                    },
-                    "isRequired": false,
-                    "attributes": [],
-                    "association": {
-                        "connectionType": "HAS_MANY",
-                        "associatedWith": "quizID"
-                    }
-                }
-            },
-            "syncable": true,
-            "pluralName": "Quizzes",
-            "attributes": [
-                {
-                    "type": "model",
-                    "properties": {}
-                }
-            ]
-        },
-        "Challenge": {
-            "name": "Challenge",
-            "fields": {
-                "id": {
-                    "name": "id",
-                    "isArray": false,
-                    "type": "ID",
-                    "isRequired": true,
-                    "attributes": []
-                },
-                "quizID": {
-                    "name": "quizID",
-                    "isArray": false,
-                    "type": "ID",
-                    "isRequired": true,
-                    "attributes": []
-                },
-                "title": {
-                    "name": "title",
-                    "isArray": false,
-                    "type": "String",
-                    "isRequired": true,
-                    "attributes": []
-                },
-                "subtitle": {
-                    "name": "subtitle",
+                "question": {
+                    "name": "question",
                     "isArray": false,
                     "type": "String",
                     "isRequired": false,
@@ -101,30 +47,57 @@ export const schema = {
                 }
             },
             "syncable": true,
-            "pluralName": "Challenges",
+            "pluralName": "Questions",
             "attributes": [
                 {
                     "type": "model",
                     "properties": {}
-                },
-                {
-                    "type": "key",
-                    "properties": {
-                        "name": "byChallenge",
-                        "fields": [
-                            "quizID",
-                            "title",
-                            "subtitle",
-                            "choices",
-                            "solution",
-                            "explanation"
-                        ]
-                    }
                 }
             ]
         },
-        "Classroom": {
-            "name": "Classroom",
+        "Assignment": {
+            "name": "Assignment",
+            "fields": {
+                "id": {
+                    "name": "id",
+                    "isArray": false,
+                    "type": "ID",
+                    "isRequired": true,
+                    "attributes": []
+                },
+                "courseID": {
+                    "name": "courseID",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": true,
+                    "attributes": []
+                },
+                "title": {
+                    "name": "title",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": true,
+                    "attributes": []
+                },
+                "category": {
+                    "name": "category",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                }
+            },
+            "syncable": true,
+            "pluralName": "Assignments",
+            "attributes": [
+                {
+                    "type": "model",
+                    "properties": {}
+                }
+            ]
+        },
+        "Course": {
+            "name": "Course",
             "fields": {
                 "id": {
                     "name": "id",
@@ -149,7 +122,7 @@ export const schema = {
                 }
             },
             "syncable": true,
-            "pluralName": "Classrooms",
+            "pluralName": "Courses",
             "attributes": [
                 {
                     "type": "model",
@@ -157,8 +130,8 @@ export const schema = {
                 }
             ]
         },
-        "ClassEnrollment": {
-            "name": "ClassEnrollment",
+        "Enrollment": {
+            "name": "Enrollment",
             "fields": {
                 "id": {
                     "name": "id",
@@ -167,15 +140,15 @@ export const schema = {
                     "isRequired": true,
                     "attributes": []
                 },
-                "classroomID": {
-                    "name": "classroomID",
+                "courseID": {
+                    "name": "courseID",
                     "isArray": false,
                     "type": "String",
                     "isRequired": false,
                     "attributes": []
                 },
-                "classroomTitle": {
-                    "name": "classroomTitle",
+                "courseTitle": {
+                    "name": "courseTitle",
                     "isArray": false,
                     "type": "String",
                     "isRequired": false,
@@ -197,7 +170,7 @@ export const schema = {
                 }
             },
             "syncable": true,
-            "pluralName": "ClassEnrollments",
+            "pluralName": "Enrollments",
             "attributes": [
                 {
                     "type": "model",
@@ -208,5 +181,5 @@ export const schema = {
     },
     "enums": {},
     "nonModels": {},
-    "version": "522a4147c0ef8401740b4d0498e58d64"
+    "version": "9120a33006316f7a6228e196a23fe219"
 };

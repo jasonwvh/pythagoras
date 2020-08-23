@@ -4,41 +4,40 @@ import { ModelInit, MutableModel, PersistentModelConstructor } from "@aws-amplif
 
 
 
-export declare class Quiz {
+export declare class Question {
   readonly id: string;
-  readonly title: string;
-  readonly category?: string;
-  readonly challenges?: Challenge[];
-  constructor(init: ModelInit<Quiz>);
-  static copyOf(source: Quiz, mutator: (draft: MutableModel<Quiz>) => MutableModel<Quiz> | void): Quiz;
-}
-
-export declare class Challenge {
-  readonly id: string;
-  readonly quizID: string;
-  readonly title: string;
-  readonly subtitle?: string;
+  readonly assignmentID: string;
+  readonly question?: string;
   readonly choices?: string[];
   readonly solution?: number;
   readonly explanation?: string;
-  constructor(init: ModelInit<Challenge>);
-  static copyOf(source: Challenge, mutator: (draft: MutableModel<Challenge>) => MutableModel<Challenge> | void): Challenge;
+  constructor(init: ModelInit<Question>);
+  static copyOf(source: Question, mutator: (draft: MutableModel<Question>) => MutableModel<Question> | void): Question;
 }
 
-export declare class Classroom {
+export declare class Assignment {
+  readonly id: string;
+  readonly courseID: string;
+  readonly title: string;
+  readonly category?: string;
+  constructor(init: ModelInit<Assignment>);
+  static copyOf(source: Assignment, mutator: (draft: MutableModel<Assignment>) => MutableModel<Assignment> | void): Assignment;
+}
+
+export declare class Course {
   readonly id: string;
   readonly title: string;
   readonly students?: string[];
-  constructor(init: ModelInit<Classroom>);
-  static copyOf(source: Classroom, mutator: (draft: MutableModel<Classroom>) => MutableModel<Classroom> | void): Classroom;
+  constructor(init: ModelInit<Course>);
+  static copyOf(source: Course, mutator: (draft: MutableModel<Course>) => MutableModel<Course> | void): Course;
 }
 
-export declare class ClassEnrollment {
+export declare class Enrollment {
   readonly id: string;
-  readonly classroomID?: string;
-  readonly classroomTitle?: string;
+  readonly courseID?: string;
+  readonly courseTitle?: string;
   readonly studentUsername?: string;
   readonly progress?: number;
-  constructor(init: ModelInit<ClassEnrollment>);
-  static copyOf(source: ClassEnrollment, mutator: (draft: MutableModel<ClassEnrollment>) => MutableModel<ClassEnrollment> | void): ClassEnrollment;
+  constructor(init: ModelInit<Enrollment>);
+  static copyOf(source: Enrollment, mutator: (draft: MutableModel<Enrollment>) => MutableModel<Enrollment> | void): Enrollment;
 }

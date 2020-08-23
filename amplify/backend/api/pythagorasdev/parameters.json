@@ -1,5 +1,11 @@
 {
     "AppSyncApiName": "pythagorasdev",
     "DynamoDBBillingMode": "PAY_PER_REQUEST",
-    "DynamoDBEnableServerSideEncryption": false
+    "DynamoDBEnableServerSideEncryption": false,
+    "AuthCognitoUserPoolId": {
+        "Fn::GetAtt": [
+            "authpythagorasdevd66d3a19",
+            "Outputs.UserPoolId"
+        ]
+    }
 }

@@ -15,14 +15,14 @@
         "name" : "Query",
         "description" : null,
         "fields" : [ {
-          "name" : "syncQuizzes",
+          "name" : "syncQuestions",
           "description" : null,
           "args" : [ {
             "name" : "filter",
             "description" : null,
             "type" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelQuizFilterInput",
+              "name" : "ModelQuestionFilterInput",
               "ofType" : null
             },
             "defaultValue" : null
@@ -56,13 +56,13 @@
           } ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "ModelQuizConnection",
+            "name" : "ModelQuestionConnection",
             "ofType" : null
           },
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "getQuiz",
+          "name" : "getQuestion",
           "description" : null,
           "args" : [ {
             "name" : "id",
@@ -80,20 +80,20 @@
           } ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "Quiz",
+            "name" : "Question",
             "ofType" : null
           },
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "listQuizs",
+          "name" : "listQuestions",
           "description" : null,
           "args" : [ {
             "name" : "filter",
             "description" : null,
             "type" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelQuizFilterInput",
+              "name" : "ModelQuestionFilterInput",
               "ofType" : null
             },
             "defaultValue" : null
@@ -118,20 +118,20 @@
           } ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "ModelQuizConnection",
+            "name" : "ModelQuestionConnection",
             "ofType" : null
           },
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "syncChallenges",
+          "name" : "syncAssignments",
           "description" : null,
           "args" : [ {
             "name" : "filter",
             "description" : null,
             "type" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelChallengeFilterInput",
+              "name" : "ModelAssignmentFilterInput",
               "ofType" : null
             },
             "defaultValue" : null
@@ -165,13 +165,13 @@
           } ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "ModelChallengeConnection",
+            "name" : "ModelAssignmentConnection",
             "ofType" : null
           },
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "getChallenge",
+          "name" : "getAssignment",
           "description" : null,
           "args" : [ {
             "name" : "id",
@@ -189,20 +189,20 @@
           } ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "Challenge",
+            "name" : "Assignment",
             "ofType" : null
           },
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "listChallenges",
+          "name" : "listAssignments",
           "description" : null,
           "args" : [ {
             "name" : "filter",
             "description" : null,
             "type" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelChallengeFilterInput",
+              "name" : "ModelAssignmentFilterInput",
               "ofType" : null
             },
             "defaultValue" : null
@@ -227,20 +227,20 @@
           } ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "ModelChallengeConnection",
+            "name" : "ModelAssignmentConnection",
             "ofType" : null
           },
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "syncClassrooms",
+          "name" : "syncCourses",
           "description" : null,
           "args" : [ {
             "name" : "filter",
             "description" : null,
             "type" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelClassroomFilterInput",
+              "name" : "ModelCourseFilterInput",
               "ofType" : null
             },
             "defaultValue" : null
@@ -274,13 +274,13 @@
           } ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "ModelClassroomConnection",
+            "name" : "ModelCourseConnection",
             "ofType" : null
           },
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "getClassroom",
+          "name" : "getCourse",
           "description" : null,
           "args" : [ {
             "name" : "id",
@@ -298,20 +298,20 @@
           } ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "Classroom",
+            "name" : "Course",
             "ofType" : null
           },
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "listClassrooms",
+          "name" : "listCourses",
           "description" : null,
           "args" : [ {
             "name" : "filter",
             "description" : null,
             "type" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelClassroomFilterInput",
+              "name" : "ModelCourseFilterInput",
               "ofType" : null
             },
             "defaultValue" : null
@@ -336,20 +336,20 @@
           } ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "ModelClassroomConnection",
+            "name" : "ModelCourseConnection",
             "ofType" : null
           },
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "syncClassEnrollments",
+          "name" : "syncEnrollments",
           "description" : null,
           "args" : [ {
             "name" : "filter",
             "description" : null,
             "type" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelClassEnrollmentFilterInput",
+              "name" : "ModelEnrollmentFilterInput",
               "ofType" : null
             },
             "defaultValue" : null
@@ -383,13 +383,13 @@
           } ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "ModelClassEnrollmentConnection",
+            "name" : "ModelEnrollmentConnection",
             "ofType" : null
           },
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "getClassEnrollment",
+          "name" : "getEnrollment",
           "description" : null,
           "args" : [ {
             "name" : "id",
@@ -407,20 +407,20 @@
           } ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "ClassEnrollment",
+            "name" : "Enrollment",
             "ofType" : null
           },
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "listClassEnrollments",
+          "name" : "listEnrollments",
           "description" : null,
           "args" : [ {
             "name" : "filter",
             "description" : null,
             "type" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelClassEnrollmentFilterInput",
+              "name" : "ModelEnrollmentFilterInput",
               "ofType" : null
             },
             "defaultValue" : null
@@ -445,7 +445,7 @@
           } ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "ModelClassEnrollmentConnection",
+            "name" : "ModelEnrollmentConnection",
             "ofType" : null
           },
           "isDeprecated" : false,
@@ -457,7 +457,7 @@
         "possibleTypes" : null
       }, {
         "kind" : "OBJECT",
-        "name" : "ModelQuizConnection",
+        "name" : "ModelQuestionConnection",
         "description" : null,
         "fields" : [ {
           "name" : "items",
@@ -468,7 +468,7 @@
             "name" : null,
             "ofType" : {
               "kind" : "OBJECT",
-              "name" : "Quiz",
+              "name" : "Question",
               "ofType" : null
             }
           },
@@ -503,7 +503,7 @@
         "possibleTypes" : null
       }, {
         "kind" : "OBJECT",
-        "name" : "Quiz",
+        "name" : "Question",
         "description" : null,
         "fields" : [ {
           "name" : "id",
@@ -521,7 +521,7 @@
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "title",
+          "name" : "assignmentID",
           "description" : null,
           "args" : [ ],
           "type" : {
@@ -536,7 +536,7 @@
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "category",
+          "name" : "question",
           "description" : null,
           "args" : [ ],
           "type" : {
@@ -547,57 +547,38 @@
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "challenges",
+          "name" : "choices",
           "description" : null,
-          "args" : [ {
-            "name" : "titleSubtitleChoicesSolutionExplanation",
-            "description" : null,
-            "type" : {
-              "kind" : "INPUT_OBJECT",
-              "name" : "ModelChallengeByChallengeCompositeKeyConditionInput",
-              "ofType" : null
-            },
-            "defaultValue" : null
-          }, {
-            "name" : "filter",
-            "description" : null,
-            "type" : {
-              "kind" : "INPUT_OBJECT",
-              "name" : "ModelChallengeFilterInput",
-              "ofType" : null
-            },
-            "defaultValue" : null
-          }, {
-            "name" : "sortDirection",
-            "description" : null,
-            "type" : {
-              "kind" : "ENUM",
-              "name" : "ModelSortDirection",
-              "ofType" : null
-            },
-            "defaultValue" : null
-          }, {
-            "name" : "limit",
-            "description" : null,
-            "type" : {
-              "kind" : "SCALAR",
-              "name" : "Int",
-              "ofType" : null
-            },
-            "defaultValue" : null
-          }, {
-            "name" : "nextToken",
-            "description" : null,
-            "type" : {
+          "args" : [ ],
+          "type" : {
+            "kind" : "LIST",
+            "name" : null,
+            "ofType" : {
               "kind" : "SCALAR",
               "name" : "String",
               "ofType" : null
-            },
-            "defaultValue" : null
-          } ],
+            }
+          },
+          "isDeprecated" : false,
+          "deprecationReason" : null
+        }, {
+          "name" : "solution",
+          "description" : null,
+          "args" : [ ],
           "type" : {
-            "kind" : "OBJECT",
-            "name" : "ModelChallengeConnection",
+            "kind" : "SCALAR",
+            "name" : "Int",
+            "ofType" : null
+          },
+          "isDeprecated" : false,
+          "deprecationReason" : null
+        }, {
+          "name" : "explanation",
+          "description" : null,
+          "args" : [ ],
+          "type" : {
+            "kind" : "SCALAR",
+            "name" : "String",
             "ofType" : null
           },
           "isDeprecated" : false,
@@ -697,225 +678,6 @@
         "enumValues" : null,
         "possibleTypes" : null
       }, {
-        "kind" : "OBJECT",
-        "name" : "ModelChallengeConnection",
-        "description" : null,
-        "fields" : [ {
-          "name" : "items",
-          "description" : null,
-          "args" : [ ],
-          "type" : {
-            "kind" : "LIST",
-            "name" : null,
-            "ofType" : {
-              "kind" : "OBJECT",
-              "name" : "Challenge",
-              "ofType" : null
-            }
-          },
-          "isDeprecated" : false,
-          "deprecationReason" : null
-        }, {
-          "name" : "nextToken",
-          "description" : null,
-          "args" : [ ],
-          "type" : {
-            "kind" : "SCALAR",
-            "name" : "String",
-            "ofType" : null
-          },
-          "isDeprecated" : false,
-          "deprecationReason" : null
-        }, {
-          "name" : "startedAt",
-          "description" : null,
-          "args" : [ ],
-          "type" : {
-            "kind" : "SCALAR",
-            "name" : "AWSTimestamp",
-            "ofType" : null
-          },
-          "isDeprecated" : false,
-          "deprecationReason" : null
-        } ],
-        "inputFields" : null,
-        "interfaces" : [ ],
-        "enumValues" : null,
-        "possibleTypes" : null
-      }, {
-        "kind" : "OBJECT",
-        "name" : "Challenge",
-        "description" : null,
-        "fields" : [ {
-          "name" : "id",
-          "description" : null,
-          "args" : [ ],
-          "type" : {
-            "kind" : "NON_NULL",
-            "name" : null,
-            "ofType" : {
-              "kind" : "SCALAR",
-              "name" : "ID",
-              "ofType" : null
-            }
-          },
-          "isDeprecated" : false,
-          "deprecationReason" : null
-        }, {
-          "name" : "quizID",
-          "description" : null,
-          "args" : [ ],
-          "type" : {
-            "kind" : "NON_NULL",
-            "name" : null,
-            "ofType" : {
-              "kind" : "SCALAR",
-              "name" : "ID",
-              "ofType" : null
-            }
-          },
-          "isDeprecated" : false,
-          "deprecationReason" : null
-        }, {
-          "name" : "title",
-          "description" : null,
-          "args" : [ ],
-          "type" : {
-            "kind" : "NON_NULL",
-            "name" : null,
-            "ofType" : {
-              "kind" : "SCALAR",
-              "name" : "String",
-              "ofType" : null
-            }
-          },
-          "isDeprecated" : false,
-          "deprecationReason" : null
-        }, {
-          "name" : "subtitle",
-          "description" : null,
-          "args" : [ ],
-          "type" : {
-            "kind" : "SCALAR",
-            "name" : "String",
-            "ofType" : null
-          },
-          "isDeprecated" : false,
-          "deprecationReason" : null
-        }, {
-          "name" : "choices",
-          "description" : null,
-          "args" : [ ],
-          "type" : {
-            "kind" : "LIST",
-            "name" : null,
-            "ofType" : {
-              "kind" : "SCALAR",
-              "name" : "String",
-              "ofType" : null
-            }
-          },
-          "isDeprecated" : false,
-          "deprecationReason" : null
-        }, {
-          "name" : "solution",
-          "description" : null,
-          "args" : [ ],
-          "type" : {
-            "kind" : "SCALAR",
-            "name" : "Int",
-            "ofType" : null
-          },
-          "isDeprecated" : false,
-          "deprecationReason" : null
-        }, {
-          "name" : "explanation",
-          "description" : null,
-          "args" : [ ],
-          "type" : {
-            "kind" : "SCALAR",
-            "name" : "String",
-            "ofType" : null
-          },
-          "isDeprecated" : false,
-          "deprecationReason" : null
-        }, {
-          "name" : "_version",
-          "description" : null,
-          "args" : [ ],
-          "type" : {
-            "kind" : "NON_NULL",
-            "name" : null,
-            "ofType" : {
-              "kind" : "SCALAR",
-              "name" : "Int",
-              "ofType" : null
-            }
-          },
-          "isDeprecated" : false,
-          "deprecationReason" : null
-        }, {
-          "name" : "_deleted",
-          "description" : null,
-          "args" : [ ],
-          "type" : {
-            "kind" : "SCALAR",
-            "name" : "Boolean",
-            "ofType" : null
-          },
-          "isDeprecated" : false,
-          "deprecationReason" : null
-        }, {
-          "name" : "_lastChangedAt",
-          "description" : null,
-          "args" : [ ],
-          "type" : {
-            "kind" : "NON_NULL",
-            "name" : null,
-            "ofType" : {
-              "kind" : "SCALAR",
-              "name" : "AWSTimestamp",
-              "ofType" : null
-            }
-          },
-          "isDeprecated" : false,
-          "deprecationReason" : null
-        }, {
-          "name" : "createdAt",
-          "description" : null,
-          "args" : [ ],
-          "type" : {
-            "kind" : "NON_NULL",
-            "name" : null,
-            "ofType" : {
-              "kind" : "SCALAR",
-              "name" : "AWSDateTime",
-              "ofType" : null
-            }
-          },
-          "isDeprecated" : false,
-          "deprecationReason" : null
-        }, {
-          "name" : "updatedAt",
-          "description" : null,
-          "args" : [ ],
-          "type" : {
-            "kind" : "NON_NULL",
-            "name" : null,
-            "ofType" : {
-              "kind" : "SCALAR",
-              "name" : "AWSDateTime",
-              "ofType" : null
-            }
-          },
-          "isDeprecated" : false,
-          "deprecationReason" : null
-        } ],
-        "inputFields" : null,
-        "interfaces" : [ ],
-        "enumValues" : null,
-        "possibleTypes" : null
-      }, {
         "kind" : "SCALAR",
         "name" : "Int",
         "description" : "Built-in Int",
@@ -953,137 +715,7 @@
         "possibleTypes" : null
       }, {
         "kind" : "INPUT_OBJECT",
-        "name" : "ModelChallengeByChallengeCompositeKeyConditionInput",
-        "description" : null,
-        "fields" : null,
-        "inputFields" : [ {
-          "name" : "eq",
-          "description" : null,
-          "type" : {
-            "kind" : "INPUT_OBJECT",
-            "name" : "ModelChallengeByChallengeCompositeKeyInput",
-            "ofType" : null
-          },
-          "defaultValue" : null
-        }, {
-          "name" : "le",
-          "description" : null,
-          "type" : {
-            "kind" : "INPUT_OBJECT",
-            "name" : "ModelChallengeByChallengeCompositeKeyInput",
-            "ofType" : null
-          },
-          "defaultValue" : null
-        }, {
-          "name" : "lt",
-          "description" : null,
-          "type" : {
-            "kind" : "INPUT_OBJECT",
-            "name" : "ModelChallengeByChallengeCompositeKeyInput",
-            "ofType" : null
-          },
-          "defaultValue" : null
-        }, {
-          "name" : "ge",
-          "description" : null,
-          "type" : {
-            "kind" : "INPUT_OBJECT",
-            "name" : "ModelChallengeByChallengeCompositeKeyInput",
-            "ofType" : null
-          },
-          "defaultValue" : null
-        }, {
-          "name" : "gt",
-          "description" : null,
-          "type" : {
-            "kind" : "INPUT_OBJECT",
-            "name" : "ModelChallengeByChallengeCompositeKeyInput",
-            "ofType" : null
-          },
-          "defaultValue" : null
-        }, {
-          "name" : "between",
-          "description" : null,
-          "type" : {
-            "kind" : "LIST",
-            "name" : null,
-            "ofType" : {
-              "kind" : "INPUT_OBJECT",
-              "name" : "ModelChallengeByChallengeCompositeKeyInput",
-              "ofType" : null
-            }
-          },
-          "defaultValue" : null
-        }, {
-          "name" : "beginsWith",
-          "description" : null,
-          "type" : {
-            "kind" : "INPUT_OBJECT",
-            "name" : "ModelChallengeByChallengeCompositeKeyInput",
-            "ofType" : null
-          },
-          "defaultValue" : null
-        } ],
-        "interfaces" : null,
-        "enumValues" : null,
-        "possibleTypes" : null
-      }, {
-        "kind" : "INPUT_OBJECT",
-        "name" : "ModelChallengeByChallengeCompositeKeyInput",
-        "description" : null,
-        "fields" : null,
-        "inputFields" : [ {
-          "name" : "title",
-          "description" : null,
-          "type" : {
-            "kind" : "SCALAR",
-            "name" : "String",
-            "ofType" : null
-          },
-          "defaultValue" : null
-        }, {
-          "name" : "subtitle",
-          "description" : null,
-          "type" : {
-            "kind" : "SCALAR",
-            "name" : "String",
-            "ofType" : null
-          },
-          "defaultValue" : null
-        }, {
-          "name" : "choices",
-          "description" : null,
-          "type" : {
-            "kind" : "SCALAR",
-            "name" : "String",
-            "ofType" : null
-          },
-          "defaultValue" : null
-        }, {
-          "name" : "solution",
-          "description" : null,
-          "type" : {
-            "kind" : "SCALAR",
-            "name" : "Int",
-            "ofType" : null
-          },
-          "defaultValue" : null
-        }, {
-          "name" : "explanation",
-          "description" : null,
-          "type" : {
-            "kind" : "SCALAR",
-            "name" : "String",
-            "ofType" : null
-          },
-          "defaultValue" : null
-        } ],
-        "interfaces" : null,
-        "enumValues" : null,
-        "possibleTypes" : null
-      }, {
-        "kind" : "INPUT_OBJECT",
-        "name" : "ModelChallengeFilterInput",
+        "name" : "ModelQuestionFilterInput",
         "description" : null,
         "fields" : null,
         "inputFields" : [ {
@@ -1096,16 +728,7 @@
           },
           "defaultValue" : null
         }, {
-          "name" : "quizID",
-          "description" : null,
-          "type" : {
-            "kind" : "INPUT_OBJECT",
-            "name" : "ModelIDInput",
-            "ofType" : null
-          },
-          "defaultValue" : null
-        }, {
-          "name" : "title",
+          "name" : "assignmentID",
           "description" : null,
           "type" : {
             "kind" : "INPUT_OBJECT",
@@ -1114,7 +737,7 @@
           },
           "defaultValue" : null
         }, {
-          "name" : "subtitle",
+          "name" : "question",
           "description" : null,
           "type" : {
             "kind" : "INPUT_OBJECT",
@@ -1157,7 +780,7 @@
             "name" : null,
             "ofType" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelChallengeFilterInput",
+              "name" : "ModelQuestionFilterInput",
               "ofType" : null
             }
           },
@@ -1170,7 +793,7 @@
             "name" : null,
             "ofType" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelChallengeFilterInput",
+              "name" : "ModelQuestionFilterInput",
               "ofType" : null
             }
           },
@@ -1180,7 +803,7 @@
           "description" : null,
           "type" : {
             "kind" : "INPUT_OBJECT",
-            "name" : "ModelChallengeFilterInput",
+            "name" : "ModelQuestionFilterInput",
             "ofType" : null
           },
           "defaultValue" : null
@@ -1678,98 +1301,8 @@
         "enumValues" : null,
         "possibleTypes" : null
       }, {
-        "kind" : "ENUM",
-        "name" : "ModelSortDirection",
-        "description" : null,
-        "fields" : null,
-        "inputFields" : null,
-        "interfaces" : null,
-        "enumValues" : [ {
-          "name" : "ASC",
-          "description" : null,
-          "isDeprecated" : false,
-          "deprecationReason" : null
-        }, {
-          "name" : "DESC",
-          "description" : null,
-          "isDeprecated" : false,
-          "deprecationReason" : null
-        } ],
-        "possibleTypes" : null
-      }, {
-        "kind" : "INPUT_OBJECT",
-        "name" : "ModelQuizFilterInput",
-        "description" : null,
-        "fields" : null,
-        "inputFields" : [ {
-          "name" : "id",
-          "description" : null,
-          "type" : {
-            "kind" : "INPUT_OBJECT",
-            "name" : "ModelIDInput",
-            "ofType" : null
-          },
-          "defaultValue" : null
-        }, {
-          "name" : "title",
-          "description" : null,
-          "type" : {
-            "kind" : "INPUT_OBJECT",
-            "name" : "ModelStringInput",
-            "ofType" : null
-          },
-          "defaultValue" : null
-        }, {
-          "name" : "category",
-          "description" : null,
-          "type" : {
-            "kind" : "INPUT_OBJECT",
-            "name" : "ModelStringInput",
-            "ofType" : null
-          },
-          "defaultValue" : null
-        }, {
-          "name" : "and",
-          "description" : null,
-          "type" : {
-            "kind" : "LIST",
-            "name" : null,
-            "ofType" : {
-              "kind" : "INPUT_OBJECT",
-              "name" : "ModelQuizFilterInput",
-              "ofType" : null
-            }
-          },
-          "defaultValue" : null
-        }, {
-          "name" : "or",
-          "description" : null,
-          "type" : {
-            "kind" : "LIST",
-            "name" : null,
-            "ofType" : {
-              "kind" : "INPUT_OBJECT",
-              "name" : "ModelQuizFilterInput",
-              "ofType" : null
-            }
-          },
-          "defaultValue" : null
-        }, {
-          "name" : "not",
-          "description" : null,
-          "type" : {
-            "kind" : "INPUT_OBJECT",
-            "name" : "ModelQuizFilterInput",
-            "ofType" : null
-          },
-          "defaultValue" : null
-        } ],
-        "interfaces" : null,
-        "enumValues" : null,
-        "possibleTypes" : null
-      }, {
         "kind" : "OBJECT",
-        "name" : "ModelClassroomConnection",
+        "name" : "ModelAssignmentConnection",
         "description" : null,
         "fields" : [ {
           "name" : "items",
@@ -1780,7 +1313,7 @@
             "name" : null,
             "ofType" : {
               "kind" : "OBJECT",
-              "name" : "Classroom",
+              "name" : "Assignment",
               "ofType" : null
             }
           },
@@ -1815,7 +1348,269 @@
         "possibleTypes" : null
       }, {
         "kind" : "OBJECT",
-        "name" : "Classroom",
+        "name" : "Assignment",
+        "description" : null,
+        "fields" : [ {
+          "name" : "id",
+          "description" : null,
+          "args" : [ ],
+          "type" : {
+            "kind" : "NON_NULL",
+            "name" : null,
+            "ofType" : {
+              "kind" : "SCALAR",
+              "name" : "ID",
+              "ofType" : null
+            }
+          },
+          "isDeprecated" : false,
+          "deprecationReason" : null
+        }, {
+          "name" : "courseID",
+          "description" : null,
+          "args" : [ ],
+          "type" : {
+            "kind" : "NON_NULL",
+            "name" : null,
+            "ofType" : {
+              "kind" : "SCALAR",
+              "name" : "String",
+              "ofType" : null
+            }
+          },
+          "isDeprecated" : false,
+          "deprecationReason" : null
+        }, {
+          "name" : "title",
+          "description" : null,
+          "args" : [ ],
+          "type" : {
+            "kind" : "NON_NULL",
+            "name" : null,
+            "ofType" : {
+              "kind" : "SCALAR",
+              "name" : "String",
+              "ofType" : null
+            }
+          },
+          "isDeprecated" : false,
+          "deprecationReason" : null
+        }, {
+          "name" : "category",
+          "description" : null,
+          "args" : [ ],
+          "type" : {
+            "kind" : "SCALAR",
+            "name" : "String",
+            "ofType" : null
+          },
+          "isDeprecated" : false,
+          "deprecationReason" : null
+        }, {
+          "name" : "_version",
+          "description" : null,
+          "args" : [ ],
+          "type" : {
+            "kind" : "NON_NULL",
+            "name" : null,
+            "ofType" : {
+              "kind" : "SCALAR",
+              "name" : "Int",
+              "ofType" : null
+            }
+          },
+          "isDeprecated" : false,
+          "deprecationReason" : null
+        }, {
+          "name" : "_deleted",
+          "description" : null,
+          "args" : [ ],
+          "type" : {
+            "kind" : "SCALAR",
+            "name" : "Boolean",
+            "ofType" : null
+          },
+          "isDeprecated" : false,
+          "deprecationReason" : null
+        }, {
+          "name" : "_lastChangedAt",
+          "description" : null,
+          "args" : [ ],
+          "type" : {
+            "kind" : "NON_NULL",
+            "name" : null,
+            "ofType" : {
+              "kind" : "SCALAR",
+              "name" : "AWSTimestamp",
+              "ofType" : null
+            }
+          },
+          "isDeprecated" : false,
+          "deprecationReason" : null
+        }, {
+          "name" : "createdAt",
+          "description" : null,
+          "args" : [ ],
+          "type" : {
+            "kind" : "NON_NULL",
+            "name" : null,
+            "ofType" : {
+              "kind" : "SCALAR",
+              "name" : "AWSDateTime",
+              "ofType" : null
+            }
+          },
+          "isDeprecated" : false,
+          "deprecationReason" : null
+        }, {
+          "name" : "updatedAt",
+          "description" : null,
+          "args" : [ ],
+          "type" : {
+            "kind" : "NON_NULL",
+            "name" : null,
+            "ofType" : {
+              "kind" : "SCALAR",
+              "name" : "AWSDateTime",
+              "ofType" : null
+            }
+          },
+          "isDeprecated" : false,
+          "deprecationReason" : null
+        } ],
+        "inputFields" : null,
+        "interfaces" : [ ],
+        "enumValues" : null,
+        "possibleTypes" : null
+      }, {
+        "kind" : "INPUT_OBJECT",
+        "name" : "ModelAssignmentFilterInput",
+        "description" : null,
+        "fields" : null,
+        "inputFields" : [ {
+          "name" : "id",
+          "description" : null,
+          "type" : {
+            "kind" : "INPUT_OBJECT",
+            "name" : "ModelIDInput",
+            "ofType" : null
+          },
+          "defaultValue" : null
+        }, {
+          "name" : "courseID",
+          "description" : null,
+          "type" : {
+            "kind" : "INPUT_OBJECT",
+            "name" : "ModelStringInput",
+            "ofType" : null
+          },
+          "defaultValue" : null
+        }, {
+          "name" : "title",
+          "description" : null,
+          "type" : {
+            "kind" : "INPUT_OBJECT",
+            "name" : "ModelStringInput",
+            "ofType" : null
+          },
+          "defaultValue" : null
+        }, {
+          "name" : "category",
+          "description" : null,
+          "type" : {
+            "kind" : "INPUT_OBJECT",
+            "name" : "ModelStringInput",
+            "ofType" : null
+          },
+          "defaultValue" : null
+        }, {
+          "name" : "and",
+          "description" : null,
+          "type" : {
+            "kind" : "LIST",
+            "name" : null,
+            "ofType" : {
+              "kind" : "INPUT_OBJECT",
+              "name" : "ModelAssignmentFilterInput",
+              "ofType" : null
+            }
+          },
+          "defaultValue" : null
+        }, {
+          "name" : "or",
+          "description" : null,
+          "type" : {
+            "kind" : "LIST",
+            "name" : null,
+            "ofType" : {
+              "kind" : "INPUT_OBJECT",
+              "name" : "ModelAssignmentFilterInput",
+              "ofType" : null
+            }
+          },
+          "defaultValue" : null
+        }, {
+          "name" : "not",
+          "description" : null,
+          "type" : {
+            "kind" : "INPUT_OBJECT",
+            "name" : "ModelAssignmentFilterInput",
+            "ofType" : null
+          },
+          "defaultValue" : null
+        } ],
+        "interfaces" : null,
+        "enumValues" : null,
+        "possibleTypes" : null
+      }, {
+        "kind" : "OBJECT",
+        "name" : "ModelCourseConnection",
+        "description" : null,
+        "fields" : [ {
+          "name" : "items",
+          "description" : null,
+          "args" : [ ],
+          "type" : {
+            "kind" : "LIST",
+            "name" : null,
+            "ofType" : {
+              "kind" : "OBJECT",
+              "name" : "Course",
+              "ofType" : null
+            }
+          },
+          "isDeprecated" : false,
+          "deprecationReason" : null
+        }, {
+          "name" : "nextToken",
+          "description" : null,
+          "args" : [ ],
+          "type" : {
+            "kind" : "SCALAR",
+            "name" : "String",
+            "ofType" : null
+          },
+          "isDeprecated" : false,
+          "deprecationReason" : null
+        }, {
+          "name" : "startedAt",
+          "description" : null,
+          "args" : [ ],
+          "type" : {
+            "kind" : "SCALAR",
+            "name" : "AWSTimestamp",
+            "ofType" : null
+          },
+          "isDeprecated" : false,
+          "deprecationReason" : null
+        } ],
+        "inputFields" : null,
+        "interfaces" : [ ],
+        "enumValues" : null,
+        "possibleTypes" : null
+      }, {
+        "kind" : "OBJECT",
+        "name" : "Course",
         "description" : null,
         "fields" : [ {
           "name" : "id",
@@ -1940,7 +1735,7 @@
         "possibleTypes" : null
       }, {
         "kind" : "INPUT_OBJECT",
-        "name" : "ModelClassroomFilterInput",
+        "name" : "ModelCourseFilterInput",
         "description" : null,
         "fields" : null,
         "inputFields" : [ {
@@ -1978,7 +1773,7 @@
             "name" : null,
             "ofType" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelClassroomFilterInput",
+              "name" : "ModelCourseFilterInput",
               "ofType" : null
             }
           },
@@ -1991,7 +1786,7 @@
             "name" : null,
             "ofType" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelClassroomFilterInput",
+              "name" : "ModelCourseFilterInput",
               "ofType" : null
             }
           },
@@ -2001,7 +1796,7 @@
           "description" : null,
           "type" : {
             "kind" : "INPUT_OBJECT",
-            "name" : "ModelClassroomFilterInput",
+            "name" : "ModelCourseFilterInput",
             "ofType" : null
           },
           "defaultValue" : null
@@ -2011,7 +1806,7 @@
         "possibleTypes" : null
       }, {
         "kind" : "OBJECT",
-        "name" : "ModelClassEnrollmentConnection",
+        "name" : "ModelEnrollmentConnection",
         "description" : null,
         "fields" : [ {
           "name" : "items",
@@ -2022,7 +1817,7 @@
             "name" : null,
             "ofType" : {
               "kind" : "OBJECT",
-              "name" : "ClassEnrollment",
+              "name" : "Enrollment",
               "ofType" : null
             }
           },
@@ -2057,7 +1852,7 @@
         "possibleTypes" : null
       }, {
         "kind" : "OBJECT",
-        "name" : "ClassEnrollment",
+        "name" : "Enrollment",
         "description" : null,
         "fields" : [ {
           "name" : "id",
@@ -2075,7 +1870,7 @@
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "classroomID",
+          "name" : "courseID",
           "description" : null,
           "args" : [ ],
           "type" : {
@@ -2086,7 +1881,7 @@
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "classroomTitle",
+          "name" : "courseTitle",
           "description" : null,
           "args" : [ ],
           "type" : {
@@ -2196,7 +1991,7 @@
         "possibleTypes" : null
       }, {
         "kind" : "INPUT_OBJECT",
-        "name" : "ModelClassEnrollmentFilterInput",
+        "name" : "ModelEnrollmentFilterInput",
         "description" : null,
         "fields" : null,
         "inputFields" : [ {
@@ -2209,7 +2004,7 @@
           },
           "defaultValue" : null
         }, {
-          "name" : "classroomID",
+          "name" : "courseID",
           "description" : null,
           "type" : {
             "kind" : "INPUT_OBJECT",
@@ -2218,7 +2013,7 @@
           },
           "defaultValue" : null
         }, {
-          "name" : "classroomTitle",
+          "name" : "courseTitle",
           "description" : null,
           "type" : {
             "kind" : "INPUT_OBJECT",
@@ -2252,7 +2047,7 @@
             "name" : null,
             "ofType" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelClassEnrollmentFilterInput",
+              "name" : "ModelEnrollmentFilterInput",
               "ofType" : null
             }
           },
@@ -2265,7 +2060,7 @@
             "name" : null,
             "ofType" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelClassEnrollmentFilterInput",
+              "name" : "ModelEnrollmentFilterInput",
               "ofType" : null
             }
           },
@@ -2275,7 +2070,7 @@
           "description" : null,
           "type" : {
             "kind" : "INPUT_OBJECT",
-            "name" : "ModelClassEnrollmentFilterInput",
+            "name" : "ModelEnrollmentFilterInput",
             "ofType" : null
           },
           "defaultValue" : null
@@ -2288,7 +2083,7 @@
         "name" : "Mutation",
         "description" : null,
         "fields" : [ {
-          "name" : "createQuiz",
+          "name" : "createQuestion",
           "description" : null,
           "args" : [ {
             "name" : "input",
@@ -2298,7 +2093,7 @@
               "name" : null,
               "ofType" : {
                 "kind" : "INPUT_OBJECT",
-                "name" : "CreateQuizInput",
+                "name" : "CreateQuestionInput",
                 "ofType" : null
               }
             },
@@ -2308,20 +2103,20 @@
             "description" : null,
             "type" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelQuizConditionInput",
+              "name" : "ModelQuestionConditionInput",
               "ofType" : null
             },
             "defaultValue" : null
           } ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "Quiz",
+            "name" : "Question",
             "ofType" : null
           },
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "updateQuiz",
+          "name" : "updateQuestion",
           "description" : null,
           "args" : [ {
             "name" : "input",
@@ -2331,7 +2126,7 @@
               "name" : null,
               "ofType" : {
                 "kind" : "INPUT_OBJECT",
-                "name" : "UpdateQuizInput",
+                "name" : "UpdateQuestionInput",
                 "ofType" : null
               }
             },
@@ -2341,20 +2136,20 @@
             "description" : null,
             "type" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelQuizConditionInput",
+              "name" : "ModelQuestionConditionInput",
               "ofType" : null
             },
             "defaultValue" : null
           } ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "Quiz",
+            "name" : "Question",
             "ofType" : null
           },
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "deleteQuiz",
+          "name" : "deleteQuestion",
           "description" : null,
           "args" : [ {
             "name" : "input",
@@ -2364,7 +2159,7 @@
               "name" : null,
               "ofType" : {
                 "kind" : "INPUT_OBJECT",
-                "name" : "DeleteQuizInput",
+                "name" : "DeleteQuestionInput",
                 "ofType" : null
               }
             },
@@ -2374,20 +2169,20 @@
             "description" : null,
             "type" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelQuizConditionInput",
+              "name" : "ModelQuestionConditionInput",
               "ofType" : null
             },
             "defaultValue" : null
           } ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "Quiz",
+            "name" : "Question",
             "ofType" : null
           },
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "createChallenge",
+          "name" : "createAssignment",
           "description" : null,
           "args" : [ {
             "name" : "input",
@@ -2397,7 +2192,7 @@
               "name" : null,
               "ofType" : {
                 "kind" : "INPUT_OBJECT",
-                "name" : "CreateChallengeInput",
+                "name" : "CreateAssignmentInput",
                 "ofType" : null
               }
             },
@@ -2407,20 +2202,20 @@
             "description" : null,
             "type" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelChallengeConditionInput",
+              "name" : "ModelAssignmentConditionInput",
               "ofType" : null
             },
             "defaultValue" : null
           } ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "Challenge",
+            "name" : "Assignment",
             "ofType" : null
           },
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "updateChallenge",
+          "name" : "updateAssignment",
           "description" : null,
           "args" : [ {
             "name" : "input",
@@ -2430,7 +2225,7 @@
               "name" : null,
               "ofType" : {
                 "kind" : "INPUT_OBJECT",
-                "name" : "UpdateChallengeInput",
+                "name" : "UpdateAssignmentInput",
                 "ofType" : null
               }
             },
@@ -2440,20 +2235,20 @@
             "description" : null,
             "type" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelChallengeConditionInput",
+              "name" : "ModelAssignmentConditionInput",
               "ofType" : null
             },
             "defaultValue" : null
           } ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "Challenge",
+            "name" : "Assignment",
             "ofType" : null
           },
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "deleteChallenge",
+          "name" : "deleteAssignment",
           "description" : null,
           "args" : [ {
             "name" : "input",
@@ -2463,7 +2258,7 @@
               "name" : null,
               "ofType" : {
                 "kind" : "INPUT_OBJECT",
-                "name" : "DeleteChallengeInput",
+                "name" : "DeleteAssignmentInput",
                 "ofType" : null
               }
             },
@@ -2473,20 +2268,20 @@
             "description" : null,
             "type" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelChallengeConditionInput",
+              "name" : "ModelAssignmentConditionInput",
               "ofType" : null
             },
             "defaultValue" : null
           } ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "Challenge",
+            "name" : "Assignment",
             "ofType" : null
           },
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "createClassroom",
+          "name" : "createCourse",
           "description" : null,
           "args" : [ {
             "name" : "input",
@@ -2496,7 +2291,7 @@
               "name" : null,
               "ofType" : {
                 "kind" : "INPUT_OBJECT",
-                "name" : "CreateClassroomInput",
+                "name" : "CreateCourseInput",
                 "ofType" : null
               }
             },
@@ -2506,20 +2301,20 @@
             "description" : null,
             "type" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelClassroomConditionInput",
+              "name" : "ModelCourseConditionInput",
               "ofType" : null
             },
             "defaultValue" : null
           } ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "Classroom",
+            "name" : "Course",
             "ofType" : null
           },
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "updateClassroom",
+          "name" : "updateCourse",
           "description" : null,
           "args" : [ {
             "name" : "input",
@@ -2529,7 +2324,7 @@
               "name" : null,
               "ofType" : {
                 "kind" : "INPUT_OBJECT",
-                "name" : "UpdateClassroomInput",
+                "name" : "UpdateCourseInput",
                 "ofType" : null
               }
             },
@@ -2539,20 +2334,20 @@
             "description" : null,
             "type" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelClassroomConditionInput",
+              "name" : "ModelCourseConditionInput",
               "ofType" : null
             },
             "defaultValue" : null
           } ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "Classroom",
+            "name" : "Course",
             "ofType" : null
           },
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "deleteClassroom",
+          "name" : "deleteCourse",
           "description" : null,
           "args" : [ {
             "name" : "input",
@@ -2562,7 +2357,7 @@
               "name" : null,
               "ofType" : {
                 "kind" : "INPUT_OBJECT",
-                "name" : "DeleteClassroomInput",
+                "name" : "DeleteCourseInput",
                 "ofType" : null
               }
             },
@@ -2572,20 +2367,20 @@
             "description" : null,
             "type" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelClassroomConditionInput",
+              "name" : "ModelCourseConditionInput",
               "ofType" : null
             },
             "defaultValue" : null
           } ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "Classroom",
+            "name" : "Course",
             "ofType" : null
           },
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "createClassEnrollment",
+          "name" : "createEnrollment",
           "description" : null,
           "args" : [ {
             "name" : "input",
@@ -2595,7 +2390,7 @@
               "name" : null,
               "ofType" : {
                 "kind" : "INPUT_OBJECT",
-                "name" : "CreateClassEnrollmentInput",
+                "name" : "CreateEnrollmentInput",
                 "ofType" : null
               }
             },
@@ -2605,20 +2400,20 @@
             "description" : null,
             "type" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelClassEnrollmentConditionInput",
+              "name" : "ModelEnrollmentConditionInput",
               "ofType" : null
             },
             "defaultValue" : null
           } ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "ClassEnrollment",
+            "name" : "Enrollment",
             "ofType" : null
           },
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "updateClassEnrollment",
+          "name" : "updateEnrollment",
           "description" : null,
           "args" : [ {
             "name" : "input",
@@ -2628,7 +2423,7 @@
               "name" : null,
               "ofType" : {
                 "kind" : "INPUT_OBJECT",
-                "name" : "UpdateClassEnrollmentInput",
+                "name" : "UpdateEnrollmentInput",
                 "ofType" : null
               }
             },
@@ -2638,20 +2433,20 @@
             "description" : null,
             "type" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelClassEnrollmentConditionInput",
+              "name" : "ModelEnrollmentConditionInput",
               "ofType" : null
             },
             "defaultValue" : null
           } ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "ClassEnrollment",
+            "name" : "Enrollment",
             "ofType" : null
           },
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "deleteClassEnrollment",
+          "name" : "deleteEnrollment",
           "description" : null,
           "args" : [ {
             "name" : "input",
@@ -2661,7 +2456,7 @@
               "name" : null,
               "ofType" : {
                 "kind" : "INPUT_OBJECT",
-                "name" : "DeleteClassEnrollmentInput",
+                "name" : "DeleteEnrollmentInput",
                 "ofType" : null
               }
             },
@@ -2671,14 +2466,14 @@
             "description" : null,
             "type" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelClassEnrollmentConditionInput",
+              "name" : "ModelEnrollmentConditionInput",
               "ofType" : null
             },
             "defaultValue" : null
           } ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "ClassEnrollment",
+            "name" : "Enrollment",
             "ofType" : null
           },
           "isDeprecated" : false,
@@ -2690,7 +2485,7 @@
         "possibleTypes" : null
       }, {
         "kind" : "INPUT_OBJECT",
-        "name" : "CreateQuizInput",
+        "name" : "CreateQuestionInput",
         "description" : null,
         "fields" : null,
         "inputFields" : [ {
@@ -2703,7 +2498,7 @@
           },
           "defaultValue" : null
         }, {
-          "name" : "title",
+          "name" : "assignmentID",
           "description" : null,
           "type" : {
             "kind" : "NON_NULL",
@@ -2716,207 +2511,7 @@
           },
           "defaultValue" : null
         }, {
-          "name" : "category",
-          "description" : null,
-          "type" : {
-            "kind" : "SCALAR",
-            "name" : "String",
-            "ofType" : null
-          },
-          "defaultValue" : null
-        }, {
-          "name" : "_version",
-          "description" : null,
-          "type" : {
-            "kind" : "SCALAR",
-            "name" : "Int",
-            "ofType" : null
-          },
-          "defaultValue" : null
-        } ],
-        "interfaces" : null,
-        "enumValues" : null,
-        "possibleTypes" : null
-      }, {
-        "kind" : "INPUT_OBJECT",
-        "name" : "ModelQuizConditionInput",
-        "description" : null,
-        "fields" : null,
-        "inputFields" : [ {
-          "name" : "title",
-          "description" : null,
-          "type" : {
-            "kind" : "INPUT_OBJECT",
-            "name" : "ModelStringInput",
-            "ofType" : null
-          },
-          "defaultValue" : null
-        }, {
-          "name" : "category",
-          "description" : null,
-          "type" : {
-            "kind" : "INPUT_OBJECT",
-            "name" : "ModelStringInput",
-            "ofType" : null
-          },
-          "defaultValue" : null
-        }, {
-          "name" : "and",
-          "description" : null,
-          "type" : {
-            "kind" : "LIST",
-            "name" : null,
-            "ofType" : {
-              "kind" : "INPUT_OBJECT",
-              "name" : "ModelQuizConditionInput",
-              "ofType" : null
-            }
-          },
-          "defaultValue" : null
-        }, {
-          "name" : "or",
-          "description" : null,
-          "type" : {
-            "kind" : "LIST",
-            "name" : null,
-            "ofType" : {
-              "kind" : "INPUT_OBJECT",
-              "name" : "ModelQuizConditionInput",
-              "ofType" : null
-            }
-          },
-          "defaultValue" : null
-        }, {
-          "name" : "not",
-          "description" : null,
-          "type" : {
-            "kind" : "INPUT_OBJECT",
-            "name" : "ModelQuizConditionInput",
-            "ofType" : null
-          },
-          "defaultValue" : null
-        } ],
-        "interfaces" : null,
-        "enumValues" : null,
-        "possibleTypes" : null
-      }, {
-        "kind" : "INPUT_OBJECT",
-        "name" : "UpdateQuizInput",
-        "description" : null,
-        "fields" : null,
-        "inputFields" : [ {
-          "name" : "id",
-          "description" : null,
-          "type" : {
-            "kind" : "NON_NULL",
-            "name" : null,
-            "ofType" : {
-              "kind" : "SCALAR",
-              "name" : "ID",
-              "ofType" : null
-            }
-          },
-          "defaultValue" : null
-        }, {
-          "name" : "title",
-          "description" : null,
-          "type" : {
-            "kind" : "SCALAR",
-            "name" : "String",
-            "ofType" : null
-          },
-          "defaultValue" : null
-        }, {
-          "name" : "category",
-          "description" : null,
-          "type" : {
-            "kind" : "SCALAR",
-            "name" : "String",
-            "ofType" : null
-          },
-          "defaultValue" : null
-        }, {
-          "name" : "_version",
-          "description" : null,
-          "type" : {
-            "kind" : "SCALAR",
-            "name" : "Int",
-            "ofType" : null
-          },
-          "defaultValue" : null
-        } ],
-        "interfaces" : null,
-        "enumValues" : null,
-        "possibleTypes" : null
-      }, {
-        "kind" : "INPUT_OBJECT",
-        "name" : "DeleteQuizInput",
-        "description" : null,
-        "fields" : null,
-        "inputFields" : [ {
-          "name" : "id",
-          "description" : null,
-          "type" : {
-            "kind" : "SCALAR",
-            "name" : "ID",
-            "ofType" : null
-          },
-          "defaultValue" : null
-        }, {
-          "name" : "_version",
-          "description" : null,
-          "type" : {
-            "kind" : "SCALAR",
-            "name" : "Int",
-            "ofType" : null
-          },
-          "defaultValue" : null
-        } ],
-        "interfaces" : null,
-        "enumValues" : null,
-        "possibleTypes" : null
-      }, {
-        "kind" : "INPUT_OBJECT",
-        "name" : "CreateChallengeInput",
-        "description" : null,
-        "fields" : null,
-        "inputFields" : [ {
-          "name" : "id",
-          "description" : null,
-          "type" : {
-            "kind" : "SCALAR",
-            "name" : "ID",
-            "ofType" : null
-          },
-          "defaultValue" : null
-        }, {
-          "name" : "quizID",
-          "description" : null,
-          "type" : {
-            "kind" : "NON_NULL",
-            "name" : null,
-            "ofType" : {
-              "kind" : "SCALAR",
-              "name" : "ID",
-              "ofType" : null
-            }
-          },
-          "defaultValue" : null
-        }, {
-          "name" : "title",
-          "description" : null,
-          "type" : {
-            "kind" : "NON_NULL",
-            "name" : null,
-            "ofType" : {
-              "kind" : "SCALAR",
-              "name" : "String",
-              "ofType" : null
-            }
-          },
-          "defaultValue" : null
-        }, {
-          "name" : "subtitle",
+          "name" : "question",
           "description" : null,
           "type" : {
             "kind" : "SCALAR",
@@ -2970,20 +2565,11 @@
         "possibleTypes" : null
       }, {
         "kind" : "INPUT_OBJECT",
-        "name" : "ModelChallengeConditionInput",
+        "name" : "ModelQuestionConditionInput",
         "description" : null,
         "fields" : null,
         "inputFields" : [ {
-          "name" : "quizID",
-          "description" : null,
-          "type" : {
-            "kind" : "INPUT_OBJECT",
-            "name" : "ModelIDInput",
-            "ofType" : null
-          },
-          "defaultValue" : null
-        }, {
-          "name" : "title",
+          "name" : "assignmentID",
           "description" : null,
           "type" : {
             "kind" : "INPUT_OBJECT",
@@ -2992,7 +2578,7 @@
           },
           "defaultValue" : null
         }, {
-          "name" : "subtitle",
+          "name" : "question",
           "description" : null,
           "type" : {
             "kind" : "INPUT_OBJECT",
@@ -3035,7 +2621,7 @@
             "name" : null,
             "ofType" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelChallengeConditionInput",
+              "name" : "ModelQuestionConditionInput",
               "ofType" : null
             }
           },
@@ -3048,7 +2634,7 @@
             "name" : null,
             "ofType" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelChallengeConditionInput",
+              "name" : "ModelQuestionConditionInput",
               "ofType" : null
             }
           },
@@ -3058,7 +2644,7 @@
           "description" : null,
           "type" : {
             "kind" : "INPUT_OBJECT",
-            "name" : "ModelChallengeConditionInput",
+            "name" : "ModelQuestionConditionInput",
             "ofType" : null
           },
           "defaultValue" : null
@@ -3068,7 +2654,7 @@
         "possibleTypes" : null
       }, {
         "kind" : "INPUT_OBJECT",
-        "name" : "UpdateChallengeInput",
+        "name" : "UpdateQuestionInput",
         "description" : null,
         "fields" : null,
         "inputFields" : [ {
@@ -3085,16 +2671,7 @@
           },
           "defaultValue" : null
         }, {
-          "name" : "quizID",
-          "description" : null,
-          "type" : {
-            "kind" : "SCALAR",
-            "name" : "ID",
-            "ofType" : null
-          },
-          "defaultValue" : null
-        }, {
-          "name" : "title",
+          "name" : "assignmentID",
           "description" : null,
           "type" : {
             "kind" : "SCALAR",
@@ -3103,7 +2680,7 @@
           },
           "defaultValue" : null
         }, {
-          "name" : "subtitle",
+          "name" : "question",
           "description" : null,
           "type" : {
             "kind" : "SCALAR",
@@ -3157,7 +2734,7 @@
         "possibleTypes" : null
       }, {
         "kind" : "INPUT_OBJECT",
-        "name" : "DeleteChallengeInput",
+        "name" : "DeleteQuestionInput",
         "description" : null,
         "fields" : null,
         "inputFields" : [ {
@@ -3184,7 +2761,225 @@
         "possibleTypes" : null
       }, {
         "kind" : "INPUT_OBJECT",
-        "name" : "CreateClassroomInput",
+        "name" : "CreateAssignmentInput",
+        "description" : null,
+        "fields" : null,
+        "inputFields" : [ {
+          "name" : "id",
+          "description" : null,
+          "type" : {
+            "kind" : "SCALAR",
+            "name" : "ID",
+            "ofType" : null
+          },
+          "defaultValue" : null
+        }, {
+          "name" : "courseID",
+          "description" : null,
+          "type" : {
+            "kind" : "NON_NULL",
+            "name" : null,
+            "ofType" : {
+              "kind" : "SCALAR",
+              "name" : "String",
+              "ofType" : null
+            }
+          },
+          "defaultValue" : null
+        }, {
+          "name" : "title",
+          "description" : null,
+          "type" : {
+            "kind" : "NON_NULL",
+            "name" : null,
+            "ofType" : {
+              "kind" : "SCALAR",
+              "name" : "String",
+              "ofType" : null
+            }
+          },
+          "defaultValue" : null
+        }, {
+          "name" : "category",
+          "description" : null,
+          "type" : {
+            "kind" : "SCALAR",
+            "name" : "String",
+            "ofType" : null
+          },
+          "defaultValue" : null
+        }, {
+          "name" : "_version",
+          "description" : null,
+          "type" : {
+            "kind" : "SCALAR",
+            "name" : "Int",
+            "ofType" : null
+          },
+          "defaultValue" : null
+        } ],
+        "interfaces" : null,
+        "enumValues" : null,
+        "possibleTypes" : null
+      }, {
+        "kind" : "INPUT_OBJECT",
+        "name" : "ModelAssignmentConditionInput",
+        "description" : null,
+        "fields" : null,
+        "inputFields" : [ {
+          "name" : "courseID",
+          "description" : null,
+          "type" : {
+            "kind" : "INPUT_OBJECT",
+            "name" : "ModelStringInput",
+            "ofType" : null
+          },
+          "defaultValue" : null
+        }, {
+          "name" : "title",
+          "description" : null,
+          "type" : {
+            "kind" : "INPUT_OBJECT",
+            "name" : "ModelStringInput",
+            "ofType" : null
+          },
+          "defaultValue" : null
+        }, {
+          "name" : "category",
+          "description" : null,
+          "type" : {
+            "kind" : "INPUT_OBJECT",
+            "name" : "ModelStringInput",
+            "ofType" : null
+          },
+          "defaultValue" : null
+        }, {
+          "name" : "and",
+          "description" : null,
+          "type" : {
+            "kind" : "LIST",
+            "name" : null,
+            "ofType" : {
+              "kind" : "INPUT_OBJECT",
+              "name" : "ModelAssignmentConditionInput",
+              "ofType" : null
+            }
+          },
+          "defaultValue" : null
+        }, {
+          "name" : "or",
+          "description" : null,
+          "type" : {
+            "kind" : "LIST",
+            "name" : null,
+            "ofType" : {
+              "kind" : "INPUT_OBJECT",
+              "name" : "ModelAssignmentConditionInput",
+              "ofType" : null
+            }
+          },
+          "defaultValue" : null
+        }, {
+          "name" : "not",
+          "description" : null,
+          "type" : {
+            "kind" : "INPUT_OBJECT",
+            "name" : "ModelAssignmentConditionInput",
+            "ofType" : null
+          },
+          "defaultValue" : null
+        } ],
+        "interfaces" : null,
+        "enumValues" : null,
+        "possibleTypes" : null
+      }, {
+        "kind" : "INPUT_OBJECT",
+        "name" : "UpdateAssignmentInput",
+        "description" : null,
+        "fields" : null,
+        "inputFields" : [ {
+          "name" : "id",
+          "description" : null,
+          "type" : {
+            "kind" : "NON_NULL",
+            "name" : null,
+            "ofType" : {
+              "kind" : "SCALAR",
+              "name" : "ID",
+              "ofType" : null
+            }
+          },
+          "defaultValue" : null
+        }, {
+          "name" : "courseID",
+          "description" : null,
+          "type" : {
+            "kind" : "SCALAR",
+            "name" : "String",
+            "ofType" : null
+          },
+          "defaultValue" : null
+        }, {
+          "name" : "title",
+          "description" : null,
+          "type" : {
+            "kind" : "SCALAR",
+            "name" : "String",
+            "ofType" : null
+          },
+          "defaultValue" : null
+        }, {
+          "name" : "category",
+          "description" : null,
+          "type" : {
+            "kind" : "SCALAR",
+            "name" : "String",
+            "ofType" : null
+          },
+          "defaultValue" : null
+        }, {
+          "name" : "_version",
+          "description" : null,
+          "type" : {
+            "kind" : "SCALAR",
+            "name" : "Int",
+            "ofType" : null
+          },
+          "defaultValue" : null
+        } ],
+        "interfaces" : null,
+        "enumValues" : null,
+        "possibleTypes" : null
+      }, {
+        "kind" : "INPUT_OBJECT",
+        "name" : "DeleteAssignmentInput",
+        "description" : null,
+        "fields" : null,
+        "inputFields" : [ {
+          "name" : "id",
+          "description" : null,
+          "type" : {
+            "kind" : "SCALAR",
+            "name" : "ID",
+            "ofType" : null
+          },
+          "defaultValue" : null
+        }, {
+          "name" : "_version",
+          "description" : null,
+          "type" : {
+            "kind" : "SCALAR",
+            "name" : "Int",
+            "ofType" : null
+          },
+          "defaultValue" : null
+        } ],
+        "interfaces" : null,
+        "enumValues" : null,
+        "possibleTypes" : null
+      }, {
+        "kind" : "INPUT_OBJECT",
+        "name" : "CreateCourseInput",
         "description" : null,
         "fields" : null,
         "inputFields" : [ {
@@ -3237,7 +3032,7 @@
         "possibleTypes" : null
       }, {
         "kind" : "INPUT_OBJECT",
-        "name" : "ModelClassroomConditionInput",
+        "name" : "ModelCourseConditionInput",
         "description" : null,
         "fields" : null,
         "inputFields" : [ {
@@ -3266,7 +3061,7 @@
             "name" : null,
             "ofType" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelClassroomConditionInput",
+              "name" : "ModelCourseConditionInput",
               "ofType" : null
             }
           },
@@ -3279,7 +3074,7 @@
             "name" : null,
             "ofType" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelClassroomConditionInput",
+              "name" : "ModelCourseConditionInput",
               "ofType" : null
             }
           },
@@ -3289,7 +3084,7 @@
           "description" : null,
           "type" : {
             "kind" : "INPUT_OBJECT",
-            "name" : "ModelClassroomConditionInput",
+            "name" : "ModelCourseConditionInput",
             "ofType" : null
           },
           "defaultValue" : null
@@ -3299,7 +3094,7 @@
         "possibleTypes" : null
       }, {
         "kind" : "INPUT_OBJECT",
-        "name" : "UpdateClassroomInput",
+        "name" : "UpdateCourseInput",
         "description" : null,
         "fields" : null,
         "inputFields" : [ {
@@ -3352,7 +3147,7 @@
         "possibleTypes" : null
       }, {
         "kind" : "INPUT_OBJECT",
-        "name" : "DeleteClassroomInput",
+        "name" : "DeleteCourseInput",
         "description" : null,
         "fields" : null,
         "inputFields" : [ {
@@ -3379,7 +3174,7 @@
         "possibleTypes" : null
       }, {
         "kind" : "INPUT_OBJECT",
-        "name" : "CreateClassEnrollmentInput",
+        "name" : "CreateEnrollmentInput",
         "description" : null,
         "fields" : null,
         "inputFields" : [ {
@@ -3392,7 +3187,7 @@
           },
           "defaultValue" : null
         }, {
-          "name" : "classroomID",
+          "name" : "courseID",
           "description" : null,
           "type" : {
             "kind" : "SCALAR",
@@ -3401,7 +3196,7 @@
           },
           "defaultValue" : null
         }, {
-          "name" : "classroomTitle",
+          "name" : "courseTitle",
           "description" : null,
           "type" : {
             "kind" : "SCALAR",
@@ -3442,11 +3237,11 @@
         "possibleTypes" : null
       }, {
         "kind" : "INPUT_OBJECT",
-        "name" : "ModelClassEnrollmentConditionInput",
+        "name" : "ModelEnrollmentConditionInput",
         "description" : null,
         "fields" : null,
         "inputFields" : [ {
-          "name" : "classroomID",
+          "name" : "courseID",
           "description" : null,
           "type" : {
             "kind" : "INPUT_OBJECT",
@@ -3455,7 +3250,7 @@
           },
           "defaultValue" : null
         }, {
-          "name" : "classroomTitle",
+          "name" : "courseTitle",
           "description" : null,
           "type" : {
             "kind" : "INPUT_OBJECT",
@@ -3489,7 +3284,7 @@
             "name" : null,
             "ofType" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelClassEnrollmentConditionInput",
+              "name" : "ModelEnrollmentConditionInput",
               "ofType" : null
             }
           },
@@ -3502,7 +3297,7 @@
             "name" : null,
             "ofType" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelClassEnrollmentConditionInput",
+              "name" : "ModelEnrollmentConditionInput",
               "ofType" : null
             }
           },
@@ -3512,7 +3307,7 @@
           "description" : null,
           "type" : {
             "kind" : "INPUT_OBJECT",
-            "name" : "ModelClassEnrollmentConditionInput",
+            "name" : "ModelEnrollmentConditionInput",
             "ofType" : null
           },
           "defaultValue" : null
@@ -3522,7 +3317,7 @@
         "possibleTypes" : null
       }, {
         "kind" : "INPUT_OBJECT",
-        "name" : "UpdateClassEnrollmentInput",
+        "name" : "UpdateEnrollmentInput",
         "description" : null,
         "fields" : null,
         "inputFields" : [ {
@@ -3539,7 +3334,7 @@
           },
           "defaultValue" : null
         }, {
-          "name" : "classroomID",
+          "name" : "courseID",
           "description" : null,
           "type" : {
             "kind" : "SCALAR",
@@ -3548,7 +3343,7 @@
           },
           "defaultValue" : null
         }, {
-          "name" : "classroomTitle",
+          "name" : "courseTitle",
           "description" : null,
           "type" : {
             "kind" : "SCALAR",
@@ -3589,7 +3384,7 @@
         "possibleTypes" : null
       }, {
         "kind" : "INPUT_OBJECT",
-        "name" : "DeleteClassEnrollmentInput",
+        "name" : "DeleteEnrollmentInput",
         "description" : null,
         "fields" : null,
         "inputFields" : [ {
@@ -3619,133 +3414,133 @@
         "name" : "Subscription",
         "description" : null,
         "fields" : [ {
-          "name" : "onCreateQuiz",
+          "name" : "onCreateQuestion",
           "description" : null,
           "args" : [ ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "Quiz",
+            "name" : "Question",
             "ofType" : null
           },
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "onUpdateQuiz",
+          "name" : "onUpdateQuestion",
           "description" : null,
           "args" : [ ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "Quiz",
+            "name" : "Question",
             "ofType" : null
           },
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "onDeleteQuiz",
+          "name" : "onDeleteQuestion",
           "description" : null,
           "args" : [ ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "Quiz",
+            "name" : "Question",
             "ofType" : null
           },
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "onCreateChallenge",
+          "name" : "onCreateAssignment",
           "description" : null,
           "args" : [ ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "Challenge",
+            "name" : "Assignment",
             "ofType" : null
           },
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "onUpdateChallenge",
+          "name" : "onUpdateAssignment",
           "description" : null,
           "args" : [ ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "Challenge",
+            "name" : "Assignment",
             "ofType" : null
           },
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "onDeleteChallenge",
+          "name" : "onDeleteAssignment",
           "description" : null,
           "args" : [ ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "Challenge",
+            "name" : "Assignment",
             "ofType" : null
           },
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "onCreateClassroom",
+          "name" : "onCreateCourse",
           "description" : null,
           "args" : [ ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "Classroom",
+            "name" : "Course",
             "ofType" : null
           },
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "onUpdateClassroom",
+          "name" : "onUpdateCourse",
           "description" : null,
           "args" : [ ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "Classroom",
+            "name" : "Course",
             "ofType" : null
           },
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "onDeleteClassroom",
+          "name" : "onDeleteCourse",
           "description" : null,
           "args" : [ ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "Classroom",
+            "name" : "Course",
             "ofType" : null
           },
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "onCreateClassEnrollment",
+          "name" : "onCreateEnrollment",
           "description" : null,
           "args" : [ ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "ClassEnrollment",
+            "name" : "Enrollment",
             "ofType" : null
           },
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "onUpdateClassEnrollment",
+          "name" : "onUpdateEnrollment",
           "description" : null,
           "args" : [ ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "ClassEnrollment",
+            "name" : "Enrollment",
             "ofType" : null
           },
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "onDeleteClassEnrollment",
+          "name" : "onDeleteEnrollment",
           "description" : null,
           "args" : [ ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "ClassEnrollment",
+            "name" : "Enrollment",
             "ofType" : null
           },
           "isDeprecated" : false,
@@ -3754,6 +3549,70 @@
         "inputFields" : null,
         "interfaces" : [ ],
         "enumValues" : null,
+        "possibleTypes" : null
+      }, {
+        "kind" : "INPUT_OBJECT",
+        "name" : "ModelBooleanInput",
+        "description" : null,
+        "fields" : null,
+        "inputFields" : [ {
+          "name" : "ne",
+          "description" : null,
+          "type" : {
+            "kind" : "SCALAR",
+            "name" : "Boolean",
+            "ofType" : null
+          },
+          "defaultValue" : null
+        }, {
+          "name" : "eq",
+          "description" : null,
+          "type" : {
+            "kind" : "SCALAR",
+            "name" : "Boolean",
+            "ofType" : null
+          },
+          "defaultValue" : null
+        }, {
+          "name" : "attributeExists",
+          "description" : null,
+          "type" : {
+            "kind" : "SCALAR",
+            "name" : "Boolean",
+            "ofType" : null
+          },
+          "defaultValue" : null
+        }, {
+          "name" : "attributeType",
+          "description" : null,
+          "type" : {
+            "kind" : "ENUM",
+            "name" : "ModelAttributeTypes",
+            "ofType" : null
+          },
+          "defaultValue" : null
+        } ],
+        "interfaces" : null,
+        "enumValues" : null,
+        "possibleTypes" : null
+      }, {
+        "kind" : "ENUM",
+        "name" : "ModelSortDirection",
+        "description" : null,
+        "fields" : null,
+        "inputFields" : null,
+        "interfaces" : null,
+        "enumValues" : [ {
+          "name" : "ASC",
+          "description" : null,
+          "isDeprecated" : false,
+          "deprecationReason" : null
+        }, {
+          "name" : "DESC",
+          "description" : null,
+          "isDeprecated" : false,
+          "deprecationReason" : null
+        } ],
         "possibleTypes" : null
       }, {
         "kind" : "INPUT_OBJECT",
@@ -3855,51 +3714,6 @@
         "description" : "Built-in Float",
         "fields" : null,
         "inputFields" : null,
-        "interfaces" : null,
-        "enumValues" : null,
-        "possibleTypes" : null
-      }, {
-        "kind" : "INPUT_OBJECT",
-        "name" : "ModelBooleanInput",
-        "description" : null,
-        "fields" : null,
-        "inputFields" : [ {
-          "name" : "ne",
-          "description" : null,
-          "type" : {
-            "kind" : "SCALAR",
-            "name" : "Boolean",
-            "ofType" : null
-          },
-          "defaultValue" : null
-        }, {
-          "name" : "eq",
-          "description" : null,
-          "type" : {
-            "kind" : "SCALAR",
-            "name" : "Boolean",
-            "ofType" : null
-          },
-          "defaultValue" : null
-        }, {
-          "name" : "attributeExists",
-          "description" : null,
-          "type" : {
-            "kind" : "SCALAR",
-            "name" : "Boolean",
-            "ofType" : null
-          },
-          "defaultValue" : null
-        }, {
-          "name" : "attributeType",
-          "description" : null,
-          "type" : {
-            "kind" : "ENUM",
-            "name" : "ModelAttributeTypes",
-            "ofType" : null
-          },
-          "defaultValue" : null
-        } ],
         "interfaces" : null,
         "enumValues" : null,
         "possibleTypes" : null
@@ -4687,6 +4501,23 @@
         "onFragment" : false,
         "onField" : true
       }, {
+        "name" : "deprecated",
+        "description" : null,
+        "locations" : [ "FIELD_DEFINITION", "ENUM_VALUE" ],
+        "args" : [ {
+          "name" : "reason",
+          "description" : null,
+          "type" : {
+            "kind" : "SCALAR",
+            "name" : "String",
+            "ofType" : null
+          },
+          "defaultValue" : "\"No longer supported\""
+        } ],
+        "onOperation" : false,
+        "onFragment" : false,
+        "onField" : false
+      }, {
         "name" : "aws_publish",
         "description" : "Tells the service which subscriptions will be published to when this mutation is called. This directive is deprecated use @aws_susbscribe directive instead.",
         "locations" : [ "FIELD_DEFINITION" ],
@@ -4753,23 +4584,6 @@
             }
           },
           "defaultValue" : null
-        } ],
-        "onOperation" : false,
-        "onFragment" : false,
-        "onField" : false
-      }, {
-        "name" : "deprecated",
-        "description" : null,
-        "locations" : [ "FIELD_DEFINITION", "ENUM_VALUE" ],
-        "args" : [ {
-          "name" : "reason",
-          "description" : null,
-          "type" : {
-            "kind" : "SCALAR",
-            "name" : "String",
-            "ofType" : null
-          },
-          "defaultValue" : "\"No longer supported\""
         } ],
         "onOperation" : false,
         "onFragment" : false,

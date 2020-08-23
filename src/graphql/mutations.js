@@ -1,121 +1,15 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const createQuiz = /* GraphQL */ `
-  mutation CreateQuiz(
-    $input: CreateQuizInput!
-    $condition: ModelQuizConditionInput
+export const createQuestion = /* GraphQL */ `
+  mutation CreateQuestion(
+    $input: CreateQuestionInput!
+    $condition: ModelQuestionConditionInput
   ) {
-    createQuiz(input: $input, condition: $condition) {
+    createQuestion(input: $input, condition: $condition) {
       id
-      title
-      category
-      challenges {
-        items {
-          id
-          quizID
-          title
-          subtitle
-          choices
-          solution
-          explanation
-          _version
-          _deleted
-          _lastChangedAt
-          createdAt
-          updatedAt
-        }
-        nextToken
-        startedAt
-      }
-      _version
-      _deleted
-      _lastChangedAt
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const updateQuiz = /* GraphQL */ `
-  mutation UpdateQuiz(
-    $input: UpdateQuizInput!
-    $condition: ModelQuizConditionInput
-  ) {
-    updateQuiz(input: $input, condition: $condition) {
-      id
-      title
-      category
-      challenges {
-        items {
-          id
-          quizID
-          title
-          subtitle
-          choices
-          solution
-          explanation
-          _version
-          _deleted
-          _lastChangedAt
-          createdAt
-          updatedAt
-        }
-        nextToken
-        startedAt
-      }
-      _version
-      _deleted
-      _lastChangedAt
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const deleteQuiz = /* GraphQL */ `
-  mutation DeleteQuiz(
-    $input: DeleteQuizInput!
-    $condition: ModelQuizConditionInput
-  ) {
-    deleteQuiz(input: $input, condition: $condition) {
-      id
-      title
-      category
-      challenges {
-        items {
-          id
-          quizID
-          title
-          subtitle
-          choices
-          solution
-          explanation
-          _version
-          _deleted
-          _lastChangedAt
-          createdAt
-          updatedAt
-        }
-        nextToken
-        startedAt
-      }
-      _version
-      _deleted
-      _lastChangedAt
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const createChallenge = /* GraphQL */ `
-  mutation CreateChallenge(
-    $input: CreateChallengeInput!
-    $condition: ModelChallengeConditionInput
-  ) {
-    createChallenge(input: $input, condition: $condition) {
-      id
-      quizID
-      title
-      subtitle
+      assignmentID
+      question
       choices
       solution
       explanation
@@ -127,16 +21,15 @@ export const createChallenge = /* GraphQL */ `
     }
   }
 `;
-export const updateChallenge = /* GraphQL */ `
-  mutation UpdateChallenge(
-    $input: UpdateChallengeInput!
-    $condition: ModelChallengeConditionInput
+export const updateQuestion = /* GraphQL */ `
+  mutation UpdateQuestion(
+    $input: UpdateQuestionInput!
+    $condition: ModelQuestionConditionInput
   ) {
-    updateChallenge(input: $input, condition: $condition) {
+    updateQuestion(input: $input, condition: $condition) {
       id
-      quizID
-      title
-      subtitle
+      assignmentID
+      question
       choices
       solution
       explanation
@@ -148,16 +41,15 @@ export const updateChallenge = /* GraphQL */ `
     }
   }
 `;
-export const deleteChallenge = /* GraphQL */ `
-  mutation DeleteChallenge(
-    $input: DeleteChallengeInput!
-    $condition: ModelChallengeConditionInput
+export const deleteQuestion = /* GraphQL */ `
+  mutation DeleteQuestion(
+    $input: DeleteQuestionInput!
+    $condition: ModelQuestionConditionInput
   ) {
-    deleteChallenge(input: $input, condition: $condition) {
+    deleteQuestion(input: $input, condition: $condition) {
       id
-      quizID
-      title
-      subtitle
+      assignmentID
+      question
       choices
       solution
       explanation
@@ -169,12 +61,66 @@ export const deleteChallenge = /* GraphQL */ `
     }
   }
 `;
-export const createClassroom = /* GraphQL */ `
-  mutation CreateClassroom(
-    $input: CreateClassroomInput!
-    $condition: ModelClassroomConditionInput
+export const createAssignment = /* GraphQL */ `
+  mutation CreateAssignment(
+    $input: CreateAssignmentInput!
+    $condition: ModelAssignmentConditionInput
   ) {
-    createClassroom(input: $input, condition: $condition) {
+    createAssignment(input: $input, condition: $condition) {
+      id
+      courseID
+      title
+      category
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const updateAssignment = /* GraphQL */ `
+  mutation UpdateAssignment(
+    $input: UpdateAssignmentInput!
+    $condition: ModelAssignmentConditionInput
+  ) {
+    updateAssignment(input: $input, condition: $condition) {
+      id
+      courseID
+      title
+      category
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const deleteAssignment = /* GraphQL */ `
+  mutation DeleteAssignment(
+    $input: DeleteAssignmentInput!
+    $condition: ModelAssignmentConditionInput
+  ) {
+    deleteAssignment(input: $input, condition: $condition) {
+      id
+      courseID
+      title
+      category
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const createCourse = /* GraphQL */ `
+  mutation CreateCourse(
+    $input: CreateCourseInput!
+    $condition: ModelCourseConditionInput
+  ) {
+    createCourse(input: $input, condition: $condition) {
       id
       title
       students
@@ -186,12 +132,12 @@ export const createClassroom = /* GraphQL */ `
     }
   }
 `;
-export const updateClassroom = /* GraphQL */ `
-  mutation UpdateClassroom(
-    $input: UpdateClassroomInput!
-    $condition: ModelClassroomConditionInput
+export const updateCourse = /* GraphQL */ `
+  mutation UpdateCourse(
+    $input: UpdateCourseInput!
+    $condition: ModelCourseConditionInput
   ) {
-    updateClassroom(input: $input, condition: $condition) {
+    updateCourse(input: $input, condition: $condition) {
       id
       title
       students
@@ -203,12 +149,12 @@ export const updateClassroom = /* GraphQL */ `
     }
   }
 `;
-export const deleteClassroom = /* GraphQL */ `
-  mutation DeleteClassroom(
-    $input: DeleteClassroomInput!
-    $condition: ModelClassroomConditionInput
+export const deleteCourse = /* GraphQL */ `
+  mutation DeleteCourse(
+    $input: DeleteCourseInput!
+    $condition: ModelCourseConditionInput
   ) {
-    deleteClassroom(input: $input, condition: $condition) {
+    deleteCourse(input: $input, condition: $condition) {
       id
       title
       students
@@ -220,15 +166,15 @@ export const deleteClassroom = /* GraphQL */ `
     }
   }
 `;
-export const createClassEnrollment = /* GraphQL */ `
-  mutation CreateClassEnrollment(
-    $input: CreateClassEnrollmentInput!
-    $condition: ModelClassEnrollmentConditionInput
+export const createEnrollment = /* GraphQL */ `
+  mutation CreateEnrollment(
+    $input: CreateEnrollmentInput!
+    $condition: ModelEnrollmentConditionInput
   ) {
-    createClassEnrollment(input: $input, condition: $condition) {
+    createEnrollment(input: $input, condition: $condition) {
       id
-      classroomID
-      classroomTitle
+      courseID
+      courseTitle
       studentUsername
       progress
       _version
@@ -239,15 +185,15 @@ export const createClassEnrollment = /* GraphQL */ `
     }
   }
 `;
-export const updateClassEnrollment = /* GraphQL */ `
-  mutation UpdateClassEnrollment(
-    $input: UpdateClassEnrollmentInput!
-    $condition: ModelClassEnrollmentConditionInput
+export const updateEnrollment = /* GraphQL */ `
+  mutation UpdateEnrollment(
+    $input: UpdateEnrollmentInput!
+    $condition: ModelEnrollmentConditionInput
   ) {
-    updateClassEnrollment(input: $input, condition: $condition) {
+    updateEnrollment(input: $input, condition: $condition) {
       id
-      classroomID
-      classroomTitle
+      courseID
+      courseTitle
       studentUsername
       progress
       _version
@@ -258,15 +204,15 @@ export const updateClassEnrollment = /* GraphQL */ `
     }
   }
 `;
-export const deleteClassEnrollment = /* GraphQL */ `
-  mutation DeleteClassEnrollment(
-    $input: DeleteClassEnrollmentInput!
-    $condition: ModelClassEnrollmentConditionInput
+export const deleteEnrollment = /* GraphQL */ `
+  mutation DeleteEnrollment(
+    $input: DeleteEnrollmentInput!
+    $condition: ModelEnrollmentConditionInput
   ) {
-    deleteClassEnrollment(input: $input, condition: $condition) {
+    deleteEnrollment(input: $input, condition: $condition) {
       id
-      classroomID
-      classroomTitle
+      courseID
+      courseTitle
       studentUsername
       progress
       _version

@@ -1,14 +1,14 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const syncQuizzes = /* GraphQL */ `
-  query SyncQuizzes(
-    $filter: ModelQuizFilterInput
+export const syncQuestions = /* GraphQL */ `
+  query SyncQuestions(
+    $filter: ModelQuestionFilterInput
     $limit: Int
     $nextToken: String
     $lastSync: AWSTimestamp
   ) {
-    syncQuizzes(
+    syncQuestions(
       filter: $filter
       limit: $limit
       nextToken: $nextToken
@@ -16,99 +16,8 @@ export const syncQuizzes = /* GraphQL */ `
     ) {
       items {
         id
-        title
-        category
-        challenges {
-          nextToken
-          startedAt
-        }
-        _version
-        _deleted
-        _lastChangedAt
-        createdAt
-        updatedAt
-      }
-      nextToken
-      startedAt
-    }
-  }
-`;
-export const getQuiz = /* GraphQL */ `
-  query GetQuiz($id: ID!) {
-    getQuiz(id: $id) {
-      id
-      title
-      category
-      challenges {
-        items {
-          id
-          quizID
-          title
-          subtitle
-          choices
-          solution
-          explanation
-          _version
-          _deleted
-          _lastChangedAt
-          createdAt
-          updatedAt
-        }
-        nextToken
-        startedAt
-      }
-      _version
-      _deleted
-      _lastChangedAt
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const listQuizs = /* GraphQL */ `
-  query ListQuizs(
-    $filter: ModelQuizFilterInput
-    $limit: Int
-    $nextToken: String
-  ) {
-    listQuizs(filter: $filter, limit: $limit, nextToken: $nextToken) {
-      items {
-        id
-        title
-        category
-        challenges {
-          nextToken
-          startedAt
-        }
-        _version
-        _deleted
-        _lastChangedAt
-        createdAt
-        updatedAt
-      }
-      nextToken
-      startedAt
-    }
-  }
-`;
-export const syncChallenges = /* GraphQL */ `
-  query SyncChallenges(
-    $filter: ModelChallengeFilterInput
-    $limit: Int
-    $nextToken: String
-    $lastSync: AWSTimestamp
-  ) {
-    syncChallenges(
-      filter: $filter
-      limit: $limit
-      nextToken: $nextToken
-      lastSync: $lastSync
-    ) {
-      items {
-        id
-        quizID
-        title
-        subtitle
+        assignmentID
+        question
         choices
         solution
         explanation
@@ -123,13 +32,12 @@ export const syncChallenges = /* GraphQL */ `
     }
   }
 `;
-export const getChallenge = /* GraphQL */ `
-  query GetChallenge($id: ID!) {
-    getChallenge(id: $id) {
+export const getQuestion = /* GraphQL */ `
+  query GetQuestion($id: ID!) {
+    getQuestion(id: $id) {
       id
-      quizID
-      title
-      subtitle
+      assignmentID
+      question
       choices
       solution
       explanation
@@ -141,18 +49,17 @@ export const getChallenge = /* GraphQL */ `
     }
   }
 `;
-export const listChallenges = /* GraphQL */ `
-  query ListChallenges(
-    $filter: ModelChallengeFilterInput
+export const listQuestions = /* GraphQL */ `
+  query ListQuestions(
+    $filter: ModelQuestionFilterInput
     $limit: Int
     $nextToken: String
   ) {
-    listChallenges(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    listQuestions(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
         id
-        quizID
-        title
-        subtitle
+        assignmentID
+        question
         choices
         solution
         explanation
@@ -167,14 +74,81 @@ export const listChallenges = /* GraphQL */ `
     }
   }
 `;
-export const syncClassrooms = /* GraphQL */ `
-  query SyncClassrooms(
-    $filter: ModelClassroomFilterInput
+export const syncAssignments = /* GraphQL */ `
+  query SyncAssignments(
+    $filter: ModelAssignmentFilterInput
     $limit: Int
     $nextToken: String
     $lastSync: AWSTimestamp
   ) {
-    syncClassrooms(
+    syncAssignments(
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+      lastSync: $lastSync
+    ) {
+      items {
+        id
+        courseID
+        title
+        category
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
+      }
+      nextToken
+      startedAt
+    }
+  }
+`;
+export const getAssignment = /* GraphQL */ `
+  query GetAssignment($id: ID!) {
+    getAssignment(id: $id) {
+      id
+      courseID
+      title
+      category
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const listAssignments = /* GraphQL */ `
+  query ListAssignments(
+    $filter: ModelAssignmentFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listAssignments(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        courseID
+        title
+        category
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
+      }
+      nextToken
+      startedAt
+    }
+  }
+`;
+export const syncCourses = /* GraphQL */ `
+  query SyncCourses(
+    $filter: ModelCourseFilterInput
+    $limit: Int
+    $nextToken: String
+    $lastSync: AWSTimestamp
+  ) {
+    syncCourses(
       filter: $filter
       limit: $limit
       nextToken: $nextToken
@@ -195,9 +169,9 @@ export const syncClassrooms = /* GraphQL */ `
     }
   }
 `;
-export const getClassroom = /* GraphQL */ `
-  query GetClassroom($id: ID!) {
-    getClassroom(id: $id) {
+export const getCourse = /* GraphQL */ `
+  query GetCourse($id: ID!) {
+    getCourse(id: $id) {
       id
       title
       students
@@ -209,13 +183,13 @@ export const getClassroom = /* GraphQL */ `
     }
   }
 `;
-export const listClassrooms = /* GraphQL */ `
-  query ListClassrooms(
-    $filter: ModelClassroomFilterInput
+export const listCourses = /* GraphQL */ `
+  query ListCourses(
+    $filter: ModelCourseFilterInput
     $limit: Int
     $nextToken: String
   ) {
-    listClassrooms(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    listCourses(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
         id
         title
@@ -231,14 +205,14 @@ export const listClassrooms = /* GraphQL */ `
     }
   }
 `;
-export const syncClassEnrollments = /* GraphQL */ `
-  query SyncClassEnrollments(
-    $filter: ModelClassEnrollmentFilterInput
+export const syncEnrollments = /* GraphQL */ `
+  query SyncEnrollments(
+    $filter: ModelEnrollmentFilterInput
     $limit: Int
     $nextToken: String
     $lastSync: AWSTimestamp
   ) {
-    syncClassEnrollments(
+    syncEnrollments(
       filter: $filter
       limit: $limit
       nextToken: $nextToken
@@ -246,8 +220,8 @@ export const syncClassEnrollments = /* GraphQL */ `
     ) {
       items {
         id
-        classroomID
-        classroomTitle
+        courseID
+        courseTitle
         studentUsername
         progress
         _version
@@ -261,12 +235,12 @@ export const syncClassEnrollments = /* GraphQL */ `
     }
   }
 `;
-export const getClassEnrollment = /* GraphQL */ `
-  query GetClassEnrollment($id: ID!) {
-    getClassEnrollment(id: $id) {
+export const getEnrollment = /* GraphQL */ `
+  query GetEnrollment($id: ID!) {
+    getEnrollment(id: $id) {
       id
-      classroomID
-      classroomTitle
+      courseID
+      courseTitle
       studentUsername
       progress
       _version
@@ -277,21 +251,17 @@ export const getClassEnrollment = /* GraphQL */ `
     }
   }
 `;
-export const listClassEnrollments = /* GraphQL */ `
-  query ListClassEnrollments(
-    $filter: ModelClassEnrollmentFilterInput
+export const listEnrollments = /* GraphQL */ `
+  query ListEnrollments(
+    $filter: ModelEnrollmentFilterInput
     $limit: Int
     $nextToken: String
   ) {
-    listClassEnrollments(
-      filter: $filter
-      limit: $limit
-      nextToken: $nextToken
-    ) {
+    listEnrollments(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
         id
-        classroomID
-        classroomTitle
+        courseID
+        courseTitle
         studentUsername
         progress
         _version

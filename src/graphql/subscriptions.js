@@ -1,109 +1,12 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const onCreateQuiz = /* GraphQL */ `
-  subscription OnCreateQuiz {
-    onCreateQuiz {
+export const onCreateQuestion = /* GraphQL */ `
+  subscription OnCreateQuestion {
+    onCreateQuestion {
       id
-      title
-      category
-      challenges {
-        items {
-          id
-          quizID
-          title
-          subtitle
-          choices
-          solution
-          explanation
-          _version
-          _deleted
-          _lastChangedAt
-          createdAt
-          updatedAt
-        }
-        nextToken
-        startedAt
-      }
-      _version
-      _deleted
-      _lastChangedAt
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const onUpdateQuiz = /* GraphQL */ `
-  subscription OnUpdateQuiz {
-    onUpdateQuiz {
-      id
-      title
-      category
-      challenges {
-        items {
-          id
-          quizID
-          title
-          subtitle
-          choices
-          solution
-          explanation
-          _version
-          _deleted
-          _lastChangedAt
-          createdAt
-          updatedAt
-        }
-        nextToken
-        startedAt
-      }
-      _version
-      _deleted
-      _lastChangedAt
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const onDeleteQuiz = /* GraphQL */ `
-  subscription OnDeleteQuiz {
-    onDeleteQuiz {
-      id
-      title
-      category
-      challenges {
-        items {
-          id
-          quizID
-          title
-          subtitle
-          choices
-          solution
-          explanation
-          _version
-          _deleted
-          _lastChangedAt
-          createdAt
-          updatedAt
-        }
-        nextToken
-        startedAt
-      }
-      _version
-      _deleted
-      _lastChangedAt
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const onCreateChallenge = /* GraphQL */ `
-  subscription OnCreateChallenge {
-    onCreateChallenge {
-      id
-      quizID
-      title
-      subtitle
+      assignmentID
+      question
       choices
       solution
       explanation
@@ -115,13 +18,12 @@ export const onCreateChallenge = /* GraphQL */ `
     }
   }
 `;
-export const onUpdateChallenge = /* GraphQL */ `
-  subscription OnUpdateChallenge {
-    onUpdateChallenge {
+export const onUpdateQuestion = /* GraphQL */ `
+  subscription OnUpdateQuestion {
+    onUpdateQuestion {
       id
-      quizID
-      title
-      subtitle
+      assignmentID
+      question
       choices
       solution
       explanation
@@ -133,13 +35,12 @@ export const onUpdateChallenge = /* GraphQL */ `
     }
   }
 `;
-export const onDeleteChallenge = /* GraphQL */ `
-  subscription OnDeleteChallenge {
-    onDeleteChallenge {
+export const onDeleteQuestion = /* GraphQL */ `
+  subscription OnDeleteQuestion {
+    onDeleteQuestion {
       id
-      quizID
-      title
-      subtitle
+      assignmentID
+      question
       choices
       solution
       explanation
@@ -151,9 +52,54 @@ export const onDeleteChallenge = /* GraphQL */ `
     }
   }
 `;
-export const onCreateClassroom = /* GraphQL */ `
-  subscription OnCreateClassroom {
-    onCreateClassroom {
+export const onCreateAssignment = /* GraphQL */ `
+  subscription OnCreateAssignment {
+    onCreateAssignment {
+      id
+      courseID
+      title
+      category
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onUpdateAssignment = /* GraphQL */ `
+  subscription OnUpdateAssignment {
+    onUpdateAssignment {
+      id
+      courseID
+      title
+      category
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onDeleteAssignment = /* GraphQL */ `
+  subscription OnDeleteAssignment {
+    onDeleteAssignment {
+      id
+      courseID
+      title
+      category
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onCreateCourse = /* GraphQL */ `
+  subscription OnCreateCourse {
+    onCreateCourse {
       id
       title
       students
@@ -165,9 +111,9 @@ export const onCreateClassroom = /* GraphQL */ `
     }
   }
 `;
-export const onUpdateClassroom = /* GraphQL */ `
-  subscription OnUpdateClassroom {
-    onUpdateClassroom {
+export const onUpdateCourse = /* GraphQL */ `
+  subscription OnUpdateCourse {
+    onUpdateCourse {
       id
       title
       students
@@ -179,9 +125,9 @@ export const onUpdateClassroom = /* GraphQL */ `
     }
   }
 `;
-export const onDeleteClassroom = /* GraphQL */ `
-  subscription OnDeleteClassroom {
-    onDeleteClassroom {
+export const onDeleteCourse = /* GraphQL */ `
+  subscription OnDeleteCourse {
+    onDeleteCourse {
       id
       title
       students
@@ -193,12 +139,12 @@ export const onDeleteClassroom = /* GraphQL */ `
     }
   }
 `;
-export const onCreateClassEnrollment = /* GraphQL */ `
-  subscription OnCreateClassEnrollment {
-    onCreateClassEnrollment {
+export const onCreateEnrollment = /* GraphQL */ `
+  subscription OnCreateEnrollment {
+    onCreateEnrollment {
       id
-      classroomID
-      classroomTitle
+      courseID
+      courseTitle
       studentUsername
       progress
       _version
@@ -209,12 +155,12 @@ export const onCreateClassEnrollment = /* GraphQL */ `
     }
   }
 `;
-export const onUpdateClassEnrollment = /* GraphQL */ `
-  subscription OnUpdateClassEnrollment {
-    onUpdateClassEnrollment {
+export const onUpdateEnrollment = /* GraphQL */ `
+  subscription OnUpdateEnrollment {
+    onUpdateEnrollment {
       id
-      classroomID
-      classroomTitle
+      courseID
+      courseTitle
       studentUsername
       progress
       _version
@@ -225,12 +171,12 @@ export const onUpdateClassEnrollment = /* GraphQL */ `
     }
   }
 `;
-export const onDeleteClassEnrollment = /* GraphQL */ `
-  subscription OnDeleteClassEnrollment {
-    onDeleteClassEnrollment {
+export const onDeleteEnrollment = /* GraphQL */ `
+  subscription OnDeleteEnrollment {
+    onDeleteEnrollment {
       id
-      classroomID
-      classroomTitle
+      courseID
+      courseTitle
       studentUsername
       progress
       _version

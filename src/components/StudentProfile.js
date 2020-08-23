@@ -1,7 +1,7 @@
 import React from "react";
 import { Auth } from '@aws-amplify/auth'
 import { DataStore } from "@aws-amplify/datastore";
-import { Classroom, ClassEnrollment } from "../models";
+import { Course, Enrollment } from "../models";
 
 export default class StudentProfile extends React.Component {
     constructor(props) {
@@ -9,48 +9,47 @@ export default class StudentProfile extends React.Component {
 
         this.state = {
             username: '',
+            enrolled: false,
             enrollments: [],
-            classrooms: [],
+            courses: [],
         };
     }
 
     componentDidMount() {
-        this.getUserClassrooms();
+        this.getUserCourses();
+
+        console.log(this.state.enrollments)
     }
 
-    async getUserClassrooms() {
-        console.log("getting classes")
+    async getUserCourses() {
         const user = await Auth.currentAuthenticatedUser();
 
-        const enrollments = await DataStore.query(ClassEnrollment, c => c.studentUsername("eq", user.username))
-        console.log(enrollments)
-        this.setState({ enrollments })
+        const enrollments = await DataStore.query(Enrollment, c => c.studentUsername("eq", user.username))
 
-        let enrollmentsID = enrollments.map(c => c.classroomID)
-        console.log(enrollmentsID)
+        let enrollmentsID = enrollments.map(c => c.courseID)
 
-        await DataStore.query(Classroom, (c) =>
-        c.or((c) => enrollmentsID.reduce((c, classroomID) => c.id("eq", classroomID), c))
+        await DataStore.query(Course, (c) =>
+        c.or((c) => enrollmentsID.reduce((c, courseID) => c.id("eq", courseID), c))
         ).then((results) => {
-            console.log("matching", results.length, results)
-            this.setState({ classrooms: results })
+            this.setState({ courses: results })
         });
+
+        this.setState({enrollments})
       }
 
     render() {
         return(
             <div>
-                {this.state.enrollments && this.state.enrollments.map((classroom, i) => (
+                {this.state.enrollments && this.state.enrollments.map((course, i) => (
                         <div key={i}>
                             <p>
-                                Title {classroom.classroomTitle}
+                                Title {course.courseTitle}
                             </p>
                             <p>
-                                Progress {classroom.progress}
+                                Progress {course.progress}
                             </p>
                         </div>
                     ))}
-                    {!this.state.classrooms && <p>not found</p>}
             </div>
         )
     }

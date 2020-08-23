@@ -1,13 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+
 import App from './App';
+
 import StudentPage from './components/StudentPage'
 import StudentProfile from './components/StudentProfile'
-import QuizPractice from './components/QuizPractice';
-import Teacher from './components/Teacher'
-import QuizReview from './components/QuizReview'
-import QuizCreate from './components/QuizCreate'
+import CoursePage from './components/CoursePage'
+import AssignmentPractice from './components/AssignmentPractice';
+
+import TeacherPage from './components/TeacherPage'
+import CourseEdit from './components/CourseEdit'
+import AssignmentEdit from './components/AssignmentEdit'
+import QuestionEdit from './components/QuestionEdit'
 
 import { Route, BrowserRouter, Switch } from "react-router-dom";
 import * as serviceWorker from './serviceWorker';
@@ -21,13 +26,16 @@ ReactDOM.render(
       <BrowserRouter>
         <Switch>
           <Route path="/" exact component={App} />
-          <Route path="/studentPage" component={StudentPage} />
+
+          <Route path="/student" component={StudentPage} />
           <Route path="/studentProfile" component={StudentProfile} />
-          <Route path="/practice/:id/:question" component={QuizPractice} />
-          <Route path="/practice/:id" component={QuizPractice} />
-          <Route path="/teacher" component={Teacher} /> 
-          <Route path="/review/:id" component={QuizReview} />
-          <Route path="/create" component={QuizCreate} />
+          <Route path="/course/:id" component={CoursePage} />
+          <Route path="/practice/:id" component={AssignmentPractice} />
+
+          <Route path="/teacher" component={TeacherPage} /> 
+          <Route path="/editCourse/:id" component={CourseEdit} />
+          <Route path="/editAssignment/:id" component={AssignmentEdit} />
+          <Route path="/editQuestion/:id" component={QuestionEdit} />
         </Switch>
       </BrowserRouter>
   </React.StrictMode>,
