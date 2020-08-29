@@ -4,6 +4,10 @@ import { Link } from "react-router-dom";
 import { DataStore } from "@aws-amplify/datastore";
 import { Assignment, Question } from "../models";
 
+import "antd/dist/antd.css";
+import { Button, Menu, Dropdown, Progress } from "antd";
+import { DownOutlined } from "@ant-design/icons";
+
 export default class AssignmentPractice extends React.Component {
     constructor(props) {
         super(props);
@@ -25,16 +29,19 @@ export default class AssignmentPractice extends React.Component {
         };
         this.nextQuestion = this.nextQuestion.bind(this);
         this.handleShowButton = this.handleShowButton.bind(this);
-        this.handleStartAssignment = this.handleStartAssignment.bind(this);
         this.handleIncreaseScore = this.handleIncreaseScore.bind(this);
         this.checkAnswer = this.checkAnswer.bind(this);
     }
 
     async componentDidMount() {
-        const assignment = await DataStore.query(Assignment, (c) => c.id("eq", this.state.assignmentID));
-        const questions = await DataStore.query(Question, (c) => c.assignmentID("eq", this.state.assignmentID));
-        console.log(assignment)
-        console.log(questions)
+        const assignment = await DataStore.query(Assignment, (c) =>
+            c.id("eq", this.state.assignmentID)
+        );
+        const questions = await DataStore.query(Question, (c) =>
+            c.assignmentID("eq", this.state.assignmentID)
+        );
+        console.log(assignment);
+        console.log(questions);
 
         this.setState({ assignment: assignment });
         this.setState({ questions: questions });
@@ -47,12 +54,6 @@ export default class AssignmentPractice extends React.Component {
         this.setState({
             showButton: true,
             questionAnswered: true,
-        });
-    }
-
-    handleStartAssignment() {
-        this.setState({
-            count: 1,
         });
     }
 
@@ -80,6 +81,7 @@ export default class AssignmentPractice extends React.Component {
         if (count === total) {
             this.setState({
                 complete: true,
+                count: this.state.count + 1,
             });
         } else {
             this.insertData(count);
@@ -125,6 +127,19 @@ export default class AssignmentPractice extends React.Component {
     }
 
     render() {
+        const menu = (
+            <Menu>
+                <Menu.Item>
+                    <Link to="/student">Switch to Student</Link>
+                </Menu.Item>
+                <Menu.Item>
+                    <Link to="/">Back to Menu</Link>
+                </Menu.Item>
+            </Menu>
+        );
+
+        const alphabets = ["A", "B", "C", "D"];
+
         let {
             count,
             total,
@@ -139,16 +154,25 @@ export default class AssignmentPractice extends React.Component {
             complete,
         } = this.state;
 
+        let percent = ((count - 1) / total) * 100;
+
         return (
-            <div className="studyComponent">
-                <div className="studyContainer">
+            <div style={styles.container}>
+                <div style={styles.header}>
+                    <h1>Pythagoras</h1>
+                    <h1>Practice</h1>
+                    <Dropdown overlay={menu}>
+                        <Button>
+                            More <DownOutlined />
+                        </Button>
+                    </Dropdown>
+                </div>
+                <Progress percent={percent} />
+                <div style={styles.centered}>
                     {!complete && (
                         <div>
-                            <div id="question">
-                                <h4 className="bg-light">
-                                    Question {count}/{total}
-                                </h4>
-                                <p> {question} </p>
+                            <div style={styles.question}>
+                                <h1> {question} </h1>
                             </div>
                             <div id="answers">
                                 <ul>
@@ -157,10 +181,12 @@ export default class AssignmentPractice extends React.Component {
                                             <li
                                                 key={i}
                                                 className={classNames[i]}
-                                                data-id={i+1}
+                                                data-id={i + 1}
                                                 onClick={this.checkAnswer}
                                             >
-                                                {choice}
+                                                {" "}
+                                                <span>{alphabets[i]}</span>
+                                                <p>{choice}</p>
                                             </li>
                                         ))}
                                 </ul>
@@ -203,17 +229,16 @@ export default class AssignmentPractice extends React.Component {
                     {complete && (
                         <div>
                             <h1 className="scoreMessage">
-                                You scored {score} correct out of{" "}
-                                {total} questions!{" "}
-                                { (score/total) > 0.5
+                                You scored {score} correct out of {total}{" "}
+                                questions!{" "}
+                                {score / total > 0.5
                                     ? "Nice work!"
                                     : "Better luck next time!"}
                             </h1>
-                            <Link
-                                className="finishBtn"
-                                to="/"
-                            >
-                                <button>Return to Assignment Page</button>
+                            <Link className="finishBtn" to="/">
+                                <Button type="default">
+                                    Return to Home Page
+                                </Button>
                             </Link>
                         </div>
                     )}
@@ -222,3 +247,46 @@ export default class AssignmentPractice extends React.Component {
         );
     }
 }
+
+const styles = {
+    container: {
+        width: "100%",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "space-between",
+        paddingBottom: 50,
+    },
+
+    header: {
+        width: "80%",
+        display: "flex",
+        flexDirection: "row",
+        justifyContent: "space-between",
+        paddingBottom: 50,
+    },
+
+    centered: {
+        width: "60%",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+        paddingBottom: 50,
+    },
+
+    question: {
+        marginTop: 100,
+        backgroundColor: "#F57C00",
+        color: "white",
+        padding: 10,
+        textAlign: "center",
+    },
+
+    footer: {
+        width: "60%",
+        display: "flex",
+        flexDirection: "row",
+        justifyContent: "space-between",
+        paddingBottom: 50,
+    },
+};

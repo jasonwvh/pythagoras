@@ -1,30 +1,357 @@
 import React from "react";
-import "./App.css";
-
 import { Link } from "react-router-dom";
 
-import { withAuthenticator, AmplifySignOut } from '@aws-amplify/ui-react';
+import {
+    notification,
+    Tabs,
+    Form,
+    Input,
+    Button,
+    Checkbox,
+    Row,
+    Image,
+} from "antd";
+import { UserOutlined, LockOutlined, MailOutlined } from "@ant-design/icons";
 
-import Amplify from "aws-amplify";
-import awsmobile from "./aws-exports";
-Amplify.configure(awsmobile);
+import studentImage from "./assets/student.svg";
+import teacherImage from "./assets/teacher.svg";
+import logo from "./assets/logo.png";
 
-class App extends React.Component {
-  render () {
-    return (
-          <div>
-            <AmplifySignOut />
-            <h1>Welcome</h1>
-            <p>I am a...</p>
-                <nav>
-                    <Link to="/student">Student</Link>
-                    <div></div>
-                    <Link to="/teacher">Teacher</Link>
-                </nav>
-          </div>
-    );
-  }
+import { Auth } from "aws-amplify";
+
+const { TabPane } = Tabs;
+
+export default class App extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            user: "",
+        };
+    }
+
+    async componentDidMount() {
+        let user = await Auth.currentSession();
+        console.log(user);
+        if (user) this.setState(user);
+        else this.setState({ user: null });
+    }
+
+    async signOut() {
+        console.log("signing out");
+        try {
+            await Auth.signOut();
+            this.setState({ user: null });
+        } catch (error) {
+            console.log("error signing out: ", error);
+        }
+    }
+
+    async signUp(values) {
+        console.log(values);
+        notification.open({
+            message: "Account created",
+            description: "Log in with your new account",
+        });
+
+        let username = values.username;
+        let password = values.password;
+        let email = values.email;
+
+        try {
+            const { user } = await Auth.signUp({
+                username,
+                password,
+                attributes: {
+                    email,
+                },
+            });
+            console.log(user);
+        } catch (error) {
+            console.log("error signing up:", error);
+        }
+    }
+
+    async signIn(values) {
+        console.log(values);
+        let username = values.username;
+        let password = values.password;
+
+        try {
+            const user = await Auth.signIn(username, password);
+            this.setState({ user });
+        } catch (error) {
+            console.log("error signing in", error);
+        }
+    }
+
+    render() {
+        return (
+            <div>
+                {this.state.user == null ? (
+                    <div style={styles.container}>
+                        <div style={styles.logo}>
+                            <img
+                                alt="logo"
+                                width={200}
+                                height={200}
+                                src={logo}
+                            ></img>
+                            <h1>Pythagoras</h1>
+                        </div>
+                        <Tabs defaultActiveKey="1">
+                            <TabPane tab="Sign In" key="1">
+                                <Form
+                                    name="normal_login"
+                                    className="login-form"
+                                    initialValues={{
+                                        remember: true,
+                                    }}
+                                    onFinish={(v) => this.signIn(v)}
+                                >
+                                    <Form.Item
+                                        name="username"
+                                        rules={[
+                                            {
+                                                required: true,
+                                                message:
+                                                    "Please input your Username!",
+                                            },
+                                        ]}
+                                    >
+                                        <Input
+                                            prefix={
+                                                <UserOutlined className="site-form-item-icon" />
+                                            }
+                                            placeholder="Username"
+                                        />
+                                    </Form.Item>
+                                    <Form.Item
+                                        name="password"
+                                        rules={[
+                                            {
+                                                required: true,
+                                                message:
+                                                    "Please input your Password!",
+                                            },
+                                        ]}
+                                    >
+                                        <Input
+                                            prefix={
+                                                <LockOutlined className="site-form-item-icon" />
+                                            }
+                                            type="password"
+                                            placeholder="Password"
+                                        />
+                                    </Form.Item>
+                                    <Form.Item>
+                                        <Form.Item
+                                            name="remember"
+                                            valuePropName="checked"
+                                            noStyle
+                                        >
+                                            <Checkbox>Remember me</Checkbox>
+                                        </Form.Item>
+                                    </Form.Item>
+
+                                    <Form.Item>
+                                        <Button
+                                            type="primary"
+                                            htmlType="submit"
+                                            className="login-form-button"
+                                        >
+                                            Log in
+                                        </Button>
+                                    </Form.Item>
+                                </Form>
+                            </TabPane>
+                            <TabPane tab="Register" key="2">
+                                <Form
+                                    name="normal_login"
+                                    className="login-form"
+                                    initialValues={{
+                                        remember: true,
+                                    }}
+                                    onFinish={(v) => this.signUp(v)}
+                                >
+                                    <Form.Item
+                                        name="email"
+                                        rules={[
+                                            {
+                                                required: true,
+                                                message:
+                                                    "Please input your Email!",
+                                            },
+                                        ]}
+                                    >
+                                        <Input
+                                            prefix={
+                                                <MailOutlined className="site-form-item-icon" />
+                                            }
+                                            placeholder="Email"
+                                        />
+                                    </Form.Item>
+                                    <Form.Item
+                                        name="username"
+                                        rules={[
+                                            {
+                                                required: true,
+                                                message:
+                                                    "Please input your Username!",
+                                            },
+                                        ]}
+                                    >
+                                        <Input
+                                            prefix={
+                                                <UserOutlined className="site-form-item-icon" />
+                                            }
+                                            placeholder="Username"
+                                        />
+                                    </Form.Item>
+                                    <Form.Item
+                                        name="password"
+                                        rules={[
+                                            {
+                                                required: true,
+                                                message:
+                                                    "Please input your Password!",
+                                            },
+                                        ]}
+                                    >
+                                        <Input
+                                            prefix={
+                                                <LockOutlined className="site-form-item-icon" />
+                                            }
+                                            type="password"
+                                            placeholder="Password"
+                                        />
+                                    </Form.Item>
+
+                                    <Form.Item
+                                        name="confirm"
+                                        dependencies={["password"]}
+                                        hasFeedback
+                                        rules={[
+                                            {
+                                                required: true,
+                                                message:
+                                                    "Please confirm your password!",
+                                            },
+                                            ({ getFieldValue }) => ({
+                                                validator(rule, value) {
+                                                    if (
+                                                        !value ||
+                                                        getFieldValue(
+                                                            "password"
+                                                        ) === value
+                                                    ) {
+                                                        return Promise.resolve();
+                                                    }
+                                                    return Promise.reject(
+                                                        "The two passwords that you entered do not match!"
+                                                    );
+                                                },
+                                            }),
+                                        ]}
+                                    >
+                                        <Input
+                                            prefix={
+                                                <LockOutlined className="site-form-item-icon" />
+                                            }
+                                            type="password"
+                                            placeholder="Confirm Password"
+                                        />
+                                    </Form.Item>
+
+                                    <Form.Item>
+                                        <Button
+                                            type="primary"
+                                            htmlType="submit"
+                                            className="login-form-button"
+                                        >
+                                            Sign Up
+                                        </Button>
+                                    </Form.Item>
+                                </Form>
+                            </TabPane>
+                        </Tabs>{" "}
+                    </div>
+                ) : (
+                    <div style={styles.container}>
+                        <div style={styles.header}>
+                            <h1>Pythagoras</h1>
+                            <h1>Welcome</h1>
+                            <Button type="text" onClick={() => this.signOut()}>
+                                Sign Out
+                            </Button>
+                        </div>
+
+                        <h2>I am a...</h2>
+                        <div style={{ width: "100%" }}>
+                            <Row justify="space-around" align="middle">
+                                <div style={styles.centered}>
+                                    <Link to="/student">
+                                        <Image
+                                            width={200}
+                                            height={200}
+                                            src={studentImage}
+                                        />
+                                    </Link>
+                                    <h3> Student </h3>
+                                </div>
+
+                                <div style={styles.centered}>
+                                    <Link to="/teacher">
+                                        <Image
+                                            width={200}
+                                            height={200}
+                                            src={teacherImage}
+                                        />
+                                    </Link>
+                                    <h3> Teacher </h3>
+                                </div>
+                            </Row>
+                        </div>
+                    </div>
+                )}
+            </div>
+        );
+    }
 }
 
-export default withAuthenticator(App)
-//export default App
+const styles = {
+    container: {
+        height: "100%",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "space-between",
+        paddingBottom: 50,
+    },
+
+    header: {
+        width: "80%",
+        display: "flex",
+        flexDirection: "row",
+        justifyContent: "space-between",
+        paddingBottom: 50,
+    },
+
+    logo: {
+        width: "50%",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "space-between",
+        paddingTop: 30,
+        paddingBottom: 30,
+    },
+
+    centered: {
+        flex: 1,
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+        paddingBottom: 50,
+    },
+};
