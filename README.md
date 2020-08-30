@@ -5,4 +5,4 @@ Built on React and uilizes Amazon Web Services (AWS Amplify) as backend/framewor
 
 ![img1](img1.PNG)
 ![img2](img2.PNG)
-![img3](img3.PNG
+![img3](img3.PNG)
