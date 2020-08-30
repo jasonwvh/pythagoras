@@ -25,22 +25,26 @@ export default class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            user: "",
+            loggedIn: false,
         };
     }
 
     async componentDidMount() {
-        let user = await Auth.currentSession();
-        console.log(user);
-        if (user) this.setState(user);
-        else this.setState({ user: null });
+        let loggedIn = await this.isLoggedIn()
+        this.setState({ loggedIn })
+    }
+
+    async isLoggedIn() {
+        return await Auth.currentAuthenticatedUser()
+            .then(() => { return true; })
+            .catch(() => { return false; })
     }
 
     async signOut() {
         console.log("signing out");
         try {
             await Auth.signOut();
-            this.setState({ user: null });
+            this.setState({ loggedIn: false });
         } catch (error) {
             console.log("error signing out: ", error);
         }
@@ -77,8 +81,8 @@ export default class App extends React.Component {
         let password = values.password;
 
         try {
-            const user = await Auth.signIn(username, password);
-            this.setState({ user });
+            await Auth.signIn(username, password);
+            this.setState({ loggedIn: true });
         } catch (error) {
             console.log("error signing in", error);
         }
@@ -87,7 +91,7 @@ export default class App extends React.Component {
     render() {
         return (
             <div>
-                {this.state.user == null ? (
+                {this.state.loggedIn === false ? (
                     <div style={styles.container}>
                         <div style={styles.logo}>
                             <img
