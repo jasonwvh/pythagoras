@@ -282,17 +282,30 @@ export default class App extends React.Component {
                 ) : (
                     <div style={styles.container}>
                         <div style={styles.header}>
-                            <h1>Pythagoras</h1>
-                            <h1>Welcome</h1>
-                            <Button type="text" onClick={() => this.signOut()}>
+                            <h1 style={{fontFamily: "Times New Roman", paddingLeft: 15,}}>Pythagoras</h1>
+                            
+                            <div style={styles.signOut}>
+                            <Button
+                            type="text" onClick={() => this.signOut()}>
                                 Sign Out
                             </Button>
+                            </div>
+
+
                         </div>
 
-                        <h2>I am a...</h2>
+                        <div style={styles.welcome}>
+                        <h1>Welcome</h1>
+                        </div>
+
+                        <div style={styles.subtitle}>
+                        <h1>I am a...</h1>
+                        </div>
+
                         <div style={{ width: "100%" }}>
                             <Row justify="space-around" align="middle">
                                 <div style={styles.centered}>
+                                    <div style={styles.image}>
                                     <Link to="/student">
                                         <Image
                                             width={200}
@@ -300,10 +313,12 @@ export default class App extends React.Component {
                                             src={studentImage}
                                         />
                                     </Link>
+                                    </div>
                                     <h3> Student </h3>
                                 </div>
 
                                 <div style={styles.centered}>
+                                <div style={styles.image}>
                                     <Link to="/teacher">
                                         <Image
                                             width={200}
@@ -311,6 +326,7 @@ export default class App extends React.Component {
                                             src={teacherImage}
                                         />
                                     </Link>
+                                    </div>
                                     <h3> Teacher </h3>
                                 </div>
                             </Row>
@@ -323,13 +339,13 @@ export default class App extends React.Component {
 }
 
 const styles = {
+
     container: {
-        height: "100%",
+        height: "80%",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "space-between",
-        paddingBottom: 50,
     },
 
     header: {
@@ -337,7 +353,7 @@ const styles = {
         display: "flex",
         flexDirection: "row",
         justifyContent: "space-between",
-        paddingBottom: 50,
+        backgroundColor: "lightgrey",
     },
 
     logo: {
@@ -346,8 +362,24 @@ const styles = {
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "space-between",
-        paddingTop: 30,
-        paddingBottom: 30,
+        paddingTop: 10,
+        paddingBottom: 10,
+    },
+
+    signOut:{
+        fontSize:25,
+        fontFamily: "Times New Roman",
+
+    },
+
+    welcome:{
+      fontSize: 50,
+      fontFamily: "Times New Roman",
+      paddingBottom:0,  
+    },
+
+    subtitle:{
+        fontSize: 15,
     },
 
     centered: {
@@ -356,6 +388,10 @@ const styles = {
         flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
-        paddingBottom: 50,
+        paddingBottom: 20,
+    },
+
+    image: {
+        paddingBottom: 10.
     },
 };
