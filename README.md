@@ -1,13 +1,16 @@
 # Pythagoras
-## Work In Progress
+
 Serverless e-learning app.
 Built on React and uilizes Amazon Web Services (AWS Amplify) as backend/framework
 
-Login page
+## Login page
+
 ![img1](img1.PNG)
 
-Home page
+## Home page
+
 ![img2](img2.PNG)
 
-Quiz
+## Quiz
+
 ![img3](img3.PNG)
