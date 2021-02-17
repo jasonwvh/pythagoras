@@ -1,7 +1,6 @@
 # Pythagoras
 
-Serverless e-learning app.
-Built on React and uilizes Amazon Web Services (AWS Amplify) as backend/framework
+Serverless e-learning app. Built on React and Amazon Web Services (AWS Amplify)
 
 ## Login page
 
